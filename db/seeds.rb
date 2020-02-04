@@ -12,10 +12,6 @@ User.destroy_all
 
 puts "Creating new users ..."
 
-malagasy_cities = ["Tananarive", "Tuléar", "Antsirabé","Fianarantsoa","Toamasina","Tamatave"]
-malagasy_first_names = ["Johary","Tsiry","Fialy","Fetinaty","Andry","Didier"]
-malagasy_last_names = ["Rajoelina","Rakotovao","Rajaonarimampianina","Rajoelinatinana","Ratsiraka","Rakotomalala"]
-
 profiles_users = [
   {
     first_name: "Johary",
@@ -75,7 +71,7 @@ profiles_users.each do |profile|
   user.save!
 end
 
- puts "Profiles seed is ok"
+ puts "Profiles users seed is ok"
 
 
 puts "Deleting existing #{Patient.count} patients ..."
@@ -83,7 +79,7 @@ Patient.destroy_all
 
 puts "Creating new patients ..."
 
-Profiles_patients = [
+profiles_patients = [
   {
     first_name: "Aina",
     last_name: "Fanantenana",
@@ -194,29 +190,44 @@ Profiles_patients = [
 
 
 profiles_patients.each do |profile|
-  user = User.new(profile)
-    user << birthdate: Faker::Date.birthday(min_age: 18, max_age: 25)
-    user << gender: Faker::Gender.binary_type
-
-  user.save!
+  profile[:birthdate] = Faker::Date.birthday(min_age: 18, max_age: 25)
+  profile[:gender] = Faker::Gender.binary_type
+  patient = Patient.new(profile)
+  patient.save!
 end
-    patient.save!
-  end
+
+puts "Profiles patients seed is ok"
 
 
-# puts "Deleting existing #{Glucose_levels.count} glucose_levels ..."
-# Glucose_levels.destroy_all
 
-# puts "Creating new glucose_levels ..."
 
-#  2.times do
-#   glucose_levels = Glucose_levels.new (
-#     patient_id:
-#     measured_at:
-#     glucose_level:
-#     )
-#     glucose_level.save
-#  end
+puts "Deleting existing #{GlucoseLevel.count} glucose_levels ..."
+GlucoseLevel.destroy_all
+
+puts "Creating new glucose_levels ..."
+
+
+ glucoses_levels = [
+  {
+    glucose_level: "200",
+  },
+
+  {
+    glucose_level: "340"
+  }
+
+ ]
+
+glucoses_levels.each do |glucose_level|
+  glucose_level[:measured_at] = "#{Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :morning)}"
+  glucose_level = GlucoseLevel.new(glucose_level)
+  glucose_level.patient = Patient.all.sample(1).first
+  glucose_level.save!
+end
+
+puts "glucose levels seed is ok"
+
+
 
 
 
