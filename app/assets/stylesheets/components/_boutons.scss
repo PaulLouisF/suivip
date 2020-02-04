@@ -1,1 +1,26 @@
-_boutons.scss
+.btn-primary {
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+background: #508CFA;
+border: 1px solid #508CFA;
+border-radius: 5px;
+}
+
+.btn-secondary {
+position: absolute;
+left: 14.65%;
+right: 75.35%;
+top: 10.11%;
+bottom: 85.44%;
+}
+
+.btn-disabled {
+position: absolute;
+width: 144px;
+height: 40px;
+left: 377px;
+top: 91px;
+}
