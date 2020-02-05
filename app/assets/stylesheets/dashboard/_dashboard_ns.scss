@@ -1,0 +1,66 @@
+.container-fluid {
+  min-height: 100vh;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ***--- DASHBOARD CARTRIDGE ---*** */
+
+.cartouche {
+  border-radius: 0px 10px 10px 0px;
+  background: #43549D;
+  opacity: 0.85;
+  background-image: linear-gradient(rgba(67, 84, 157, 0.9),rgba(67, 84, 157, 0.9)), asset-url('medic2.svg');
+  background-size: cover;
+  background-position-x: 60%;
+}
+
+#dashboard-username {
+  font-weight: 600;
+  opacity: 1;
+  color: white;
+}
+
+#logout{
+  position: absolute;
+  bottom: 20px;
+}
+
+#logout a {
+  text-decoration: none;
+  color: white;
+
+  &:hover, &:focus, &:active{
+    text-decoration: underline;
+  }
+}
+
+/* ***--- TAB CONTENTS ---*** */
+
+.tabcontent {
+  animation: fadeEffect 1.5s;
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* ***--- PATIENTS VIEW ---*** */
+
+#patients {
+  overflow-y: scroll;
+}
+
+.carousel-item {
+  height: 400px;
+  background-color: $turquoise;
+}
+
+.carousel-inner > .item >img{
+  min-height : 400px;
+  max-height : 400px;
+  width : 100%;
+}

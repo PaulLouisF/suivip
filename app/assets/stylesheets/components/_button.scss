@@ -1,6 +1,6 @@
 .btn-primary {
-  background: #508CFA;
-  border: 1px solid #508CFA;
+background: $bluelagoon;
+  border: 1px solid $bluelagoon;
   border-radius: 5px;
   font-weight: bold;
   font-size: 16px;
@@ -10,16 +10,28 @@
   text-align: center;
   color: #FFFFFF;
 
-  &:hover{
-   background-color: #FFFFFF;
-   color: #508CFA;
+  &:hover, &:active, &:focus{
+   color: white;
+   background-color: #046CE7;
+   outline: none !important;
+  }
+}
+
+.btn-primary.btn-new {
+  background-color: $queenblue;
+  &:hover, &:active, &:focus{
+    // background-color: #374581;
+    background-color: $mustard;
+    border: solid 1px $mustard;
+    color: $queenblue;
+    transition: background-color 150ms ease-in;
   }
 }
 
 
 .btn-secondary {
   background: #FFFFFF;
-  border: 1px solid #508CFA;
+  border: 1px solid $bluelagoon;
   border-radius: 5px;
   font-weight: bold;
   font-size: 16px;
@@ -27,18 +39,17 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: #508CFA;
+  color: $bluelagoon;
 
-  &:hover{
-   background-color: #508CFA;
+  &:hover, &:active, &:focus{
+   background-color: #046CE7;
+   border: 1px solid #046CE7;
    color: white;
+   outline: none !important;
   }
 }
 
 .btn-disabled {
-  position: absolute;
-  width: 144px;
+  width: 140px;
   height: 40px;
-  left: 377px;
-  top: 91px;
 }
