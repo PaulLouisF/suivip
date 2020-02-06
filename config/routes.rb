@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users, :path => 'users', controllers: { confirmations: "confirmations" }
-  
-  get 'dashboards/home', to: 'dashboards#home', as: :dashboard
-  get 'dashboards/userinformation', to: 'dashboards#userinformation', as: :mesinfosperso
+
+  get 'dashboard', to: 'dashboards#home', as: :dashboard
+  get 'moncompte', to: 'dashboards#userinformation', as: :mesinfosperso
 
   authenticated :user do
     root 'dashboards#home', as: :authenticated_root
