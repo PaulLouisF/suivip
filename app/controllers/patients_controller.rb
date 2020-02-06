@@ -3,20 +3,23 @@ class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   def index
-    @patients = Patient.all
+    @patients = policy_scope(Patient)
+    # Patient.all
   end
 
   def new
     @patient = Patient.new
+    authorize @patient
   end
 
   def create
     @patient = Patient.new(patient_params)
+    authorize @patient
     @patient.save
 
     redirect_to dashboard_path
   end
-  
+
   def show
   end
 
@@ -33,6 +36,7 @@ class PatientsController < ApplicationController
 
   def set_patient
     @patient = Patient.find(params[:id])
+    authorize @patient
   end
 
   def patient_params
