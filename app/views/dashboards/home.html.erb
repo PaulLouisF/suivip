@@ -5,7 +5,8 @@
     <div class="tab-content pt-3" id="patients" role="tabpanel">
       <div class="d-flex flex-row">
         <h1 class="flex-grow-1 font-weight-bold">Mes Patients</h1>
-        <button class="btn-primary btn-new">Nouveau patient</button>
+        <%# <button class="btn-primary btn-new">Nouveau patient</button> %>
+        <%= link_to("Nouveau Patient", new_patient_path, class: "btn-primary btn-new", style: "text-decoration: none;", role: "button") %>
       </div>
             <section class="last-patients pt-3">
               <h2>Mes derniers patients consultés</h2>
@@ -45,9 +46,9 @@
               </div>
 
             </section>
-            <section class="patients pt-5">
+            <section class="patients pt-4">
               <h2>Tous mes patients</h2>
-              <table class="table table-hover">
+              <table class="table table-hover mt-3">
                 <thead class="thead-dark">
                   <tr>
                     <th class="align-middle" scope="col">#</th>
@@ -56,11 +57,12 @@
                     <th class="align-middle" scope="col">Date de<br>naissance</th>
                     <th class="align-middle" scope="col">Sexe</th>
                     <th class="align-middle" scope="col">Dernière<br>consultation</th>
-                    <th class="align-middle" scope="col">Ticket à traiter</th>
+                    <th class="align-middle" scope="col">Ticket<br>à traiter</th>
+                    <th class="align-middle" scope="col">Suivi<br>depuis le</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <%# <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
@@ -68,25 +70,19 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                  </tr>
+                  </tr> %>
+                  <% @patients.each do |patient| %>
                   <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
+                    <th scope="row"><%= patient.id %></th>
+                    <td><%= patient.first_name %></td>
+                    <td><%= patient.last_name %></td>
+                    <td><%= patient.birthdate %></td>
+                    <td><%= patient.gender %></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                  </tr>
+                    <td><%= patient.created_at %></td>
                   <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+                  <% end %>
                 </tbody>
               </table>
             </section>

@@ -3,6 +3,7 @@ class DashboardsController < ApplicationController
   before_action :authenticate_user!
 
   def home
+    @patients = Patient.all
   end
 
   def userinformation
