@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  devise_for :users, :path => 'users', controllers: { registrations: "registrations", confirmations: "confirmations" }
+  devise_for :users, :path => 'users', controllers: { confirmations: "confirmations" }
   
   get 'dashboards/home', to: 'dashboards#home', as: :dashboard
   get 'dashboards/userinformation', to: 'dashboards#userinformation', as: :mesinfosperso
@@ -14,5 +14,10 @@ Rails.application.routes.draw do
   end
 
   get 'components', to: 'pages#components', as: :components
+
+  resources :patients, only: [:index, :show, :new, :create, :edit, :update]  do
+    resources :consultations, only: [:index, :show, :new, :create, :edit, :update]
+  end
+
 
 end

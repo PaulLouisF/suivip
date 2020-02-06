@@ -1,0 +1,48 @@
+.nav-btn {
+  width: 200px;
+  height: 44px;
+  background: #FFFFFF;
+  border: 2px solid $deepkoamaru; /* deep koamaru */
+  border-radius: 5px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 250%;
+
+  // display: flex;
+  // align-items: center;
+  // text-align: center;
+  color: $deepkoamaru; /* deep koamaru */
+  outline: none !important;
+
+  &:hover{
+    color: #FFFFFF;
+    background: $deepkoamaru;
+    outline: none !important;
+  }
+
+  &:active, &:focus{
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    background: $deepkoamaru;
+    outline: none !important;
+  }
+}
+
+.nav-btn.focus{
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  background: $deepkoamaru;
+  outline: none !important;
+}
+
+#nav-infos {
+  &:hover, &:active, &:focus {
+    background: $mustard;
+    border: 2px solid $deepkoamaru;
+    color: $deepkoamaru;
+    outline: none !important;
+  }
+}

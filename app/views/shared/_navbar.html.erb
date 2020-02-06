@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to(image_tag("insulin_logo.svg", width: 200), root_path) %>
+  <%= link_to(image_tag("insulin_logo.svg", width: 200), "assets/images") %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <li class="nav-item">
-          <%= link_to "Pourquoi Insulin_", "#", class: "nav-link" %>
+          <%= link_to "Pourquoi insuline", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Services", "/services", class: "nav-link" %>
@@ -16,10 +16,10 @@
           <%= link_to "Nous contacter", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Faire un don", "#", class: "btn-secondary", role: "button" %>
+          <%= link_to "Faire un don", "#", class: "btn btn-secondary", role: "button" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Se Connecter", "/users/sign_in", class: "btn-primary", role: "button" %>
+          <%= link_to "S'identifier", "/users/sign_in", class: "btn btn-primary", role: "button" %>
         </li>
     </ul>
   </div>
