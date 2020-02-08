@@ -5,8 +5,8 @@
     <div class="tab-content pt-3" id="patients" role="tabpanel">
       <div class="d-flex flex-row">
         <h1 class="flex-grow-1 font-weight-bold">Mes Patients</h1>
-        <%# <button class="btn-primary btn-new">Nouveau patient</button> %>
-        <%= link_to("Nouveau Patient", new_patient_path, class: "btn-primary btn-new", style: "text-decoration: none;", role: "button") %>
+        <!-- <%= link_to("Nouveau Patient", new_patient_path, class: "btn-primary btn-new", style: "text-decoration: none;", role: "button") %> -->
+        <button id="nav-new" class="btn-primary btn-new" onclick="openTab(event, 'new-patient')">Ajouter un patient</button>
       </div>
             <section class="last-patients pt-3">
               <h2>Mes derniers patients consultés</h2>
@@ -90,7 +90,12 @@
     <div class="tab-content pt-3" id="medecins" role="tabpanel">
       <h1 class="font-weight-bold">Mes Médecins</h1>
     </div>
-    <div class="tab-content pt-3" id="mesinfos" role="tabpanel">
+    <!-- <div class="tab-content pt-3" id="mesinfos" role="tabpanel">
       <h1 class="font-weight-bold">Mon Compte</h1>
+    </div> -->
+
+    <div class="tab-content pt-3" id="new-patient" role="tabpanel">
+      <h1 class="font-weight-bold">Créer un nouveau patient</h1>
+      <%= render 'form', patient: @patient %>
     </div>
 </div>

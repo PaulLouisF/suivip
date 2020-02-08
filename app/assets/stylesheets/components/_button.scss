@@ -19,6 +19,7 @@ background: $bluelagoon;
 
 .btn-primary.btn-new {
   background-color: $queenblue;
+  outline: none !important;
   &:hover, &:active, &:focus{
     // background-color: #374581;
     background-color: $mustard;

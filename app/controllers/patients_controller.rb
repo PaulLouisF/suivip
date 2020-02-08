@@ -7,7 +7,7 @@ class PatientsController < ApplicationController
     # Patient.all
   end
 
-  def new
+  def self.new
     @patient = Patient.new
     authorize @patient
   end

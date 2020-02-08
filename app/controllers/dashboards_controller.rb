@@ -5,8 +5,10 @@ class DashboardsController < ApplicationController
 
   def home
     @patients = policy_scope(Patient)
-    # Patient.all
+    @patient = Patient.new
 
+    # @patient = PatientsController.new
+    # @patient = PatientsController.create
   end
 
   def userinformation
