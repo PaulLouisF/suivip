@@ -19,5 +19,9 @@ Rails.application.routes.draw do
     resources :consultations, only: [:index, :show, :new, :create, :edit, :update]
   end
 
+  resources :consultation do
+    resources :prescriptions, only: [:new, :create, :update, :destroy]
+  end
+
 
 end
