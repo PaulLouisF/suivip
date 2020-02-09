@@ -32,3 +32,9 @@ hr{
   border: solid 2px $deepkoamaru;
   border-radius: 5px;
 }
+
+#patient-tab-content{
+  min-height: 600px;
+  max-width: 96%;
+  overflow: scroll;
+}
