@@ -20,13 +20,14 @@
           <div id="patient-file-header" class="d-flex flex-row align-items-center">
             <!-- IMAGE TAG FOR AVATAR HERE -->
             <%= image_tag "test.jpeg", class: "avatar-bordered ml-3" %>
-            <h1 class="flex-grow-1 ml-3"><%= @patient.first_name %> <%= @patient.last_name %>, <%= @patient_age %> ans</h1>
+            <!-- REMOVED AGE FROM HEADER, AGE METHOD NOT AVAILABLE IN OTHER CONTROLLERS YET -->
+            <h1 class="flex-grow-1 ml-3"><%= @patient.first_name %> <%= @patient.last_name %>, XX ans</h1>
             <button class="btn-secondary mr-5">infos</button>
           </div>
           <hr class="w-75 mt-0">
           <div class="d-flex flex-row justify-content-around">
-            <%= link_to "Consultations", patient_path, class: "btn nav-tab" %>
-            <%= link_to "Données de Glycémie", patient_path, class: "btn nav-tab" %> 
+            <%= link_to "Consultations", patient_consultations_path(@patient), class: "btn nav-tab" %>
+            <%= link_to "Données de Glycémie", patient_glucose_levels_path(@patient), class: "btn nav-tab" %> 
             <%= link_to "Ordonnances", patient_path, class: "btn nav-tab" %>
           </div>
           <!-- TODO : remove background color when sizing done -->
