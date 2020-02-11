@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :patients, only: [:index, :show, :new, :create, :edit, :update]  do
     resources :consultations, only: [:index, :show, :new, :create, :edit, :update]
+    resources :glucose_levels, only: :index
   end
 
   resources :consultation do

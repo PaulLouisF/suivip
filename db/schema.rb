@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_161535) do
 
+ActiveRecord::Schema.define(version: 2020_02_10_150825) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_161535) do
   end
 
   create_table "glucose_levels", force: :cascade do |t|
-    t.date "measured_at"
+    t.datetime "measured_at"
     t.integer "glucose_level"
     t.bigint "patient_id"
     t.datetime "created_at", null: false
