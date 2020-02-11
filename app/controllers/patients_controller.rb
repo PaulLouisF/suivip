@@ -4,6 +4,7 @@ class PatientsController < ApplicationController
 
   def index
     @patients = policy_scope(Patient)
+
     # Patient.all
   end
 

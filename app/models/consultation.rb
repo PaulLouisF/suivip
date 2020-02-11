@@ -3,4 +3,5 @@ class Consultation < ApplicationRecord
   has_many :user_consultations
   has_many :users, through: :user_consultations
   validates :report, presence: true
+  has_one :prescription, dependent: :destroy
 end
