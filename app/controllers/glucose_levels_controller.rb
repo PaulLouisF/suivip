@@ -14,12 +14,4 @@ class GlucoseLevelsController < ApplicationController
       y: glucose_level.glucose_level }
     end
   end
-
-
-  private
-
-  def set_glucose_level
-    @glucose_level = GlucoseLevel.find(params[:id])
-    authorize @glucose_level
-  end
 end
