@@ -1,1 +1,28 @@
 <h1>hello</h1>
+
+
+<div class="row pt-4">
+  <div class="col-xs-12 col-sm-12 col-md-4">
+    <% @consultations.each do |consultation| %>
+      <div class="m-2">
+        <%= consultation.created_at %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-8">
+    <% @consultations.each do |consultation| %>
+    <div>
+      <div class= "m-5">
+        <div>
+          <%= "Taille : #{consultation.height}" %>
+          <%= "Poids : #{consultation.weight}"%>
+        </div>
+        <%= "Compte rendu : #{consultation.report}" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
