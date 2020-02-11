@@ -1,5 +1,4 @@
 import "bootstrap";
-import Chartkick from "chartkick"
 import Chart from "chart.js"
 
 var ctx = document.getElementById('glucoseChart');
