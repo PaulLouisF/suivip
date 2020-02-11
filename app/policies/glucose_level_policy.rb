@@ -3,23 +3,23 @@ class GlucoseLevelPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def show?
-      true
-    end
+  def show?
+    true
+  end
 
-    def create?
-      true
-    end
+  def create?
+    true
+  end
 
-    def update?
-      record.user == user
-      # || user.admin == true
-    end
+  def update?
+    record.user == user
+    # || user.admin == true
+  end
 
-    def destroy?
-      record.user == user
-      # || user.admin == true
-    end
+  def destroy?
+    record.user == user
+    # || user.admin == true
   end
 end
