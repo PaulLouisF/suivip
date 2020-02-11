@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   get 'components', to: 'pages#components', as: :components
 
   resources :patients, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :consultations, only: [:index, :show, :new, :create, :edit, :update] do
-      resources :prescriptions, only: [:new, :create, :update, :destroy]
-    end
+    resources :consultations, only: [:index, :new, :create]
+    resources :glucose_levels, only: :index
   end
 
+  resources :consultations do
+    resources :prescriptions, only: [:index, :new, :create]
+  end
 end

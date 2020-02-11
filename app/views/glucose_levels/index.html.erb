@@ -1,0 +1,31 @@
+<div class="w-50 h-50">
+  <canvas id="glucoseChart" ></canvas>
+</div>
+
+<%= @glycemic_value%>
+<% @patient.glucose_levels.each do|glucose_level|%>
+  <%= glucose_level.measured_at%>
+<% end %>
+
+
+
+
+<div id="essaiT" data-dates_enable="<%= @glycemic_value.to_json %>"></div>
+<button id="btn_essai">hello</button>
+
+
+<!-- <script>
+
+
+const a = JSON.parse(document.getElementById('essaiT').dataset.dates_enable);
+
+EssaiBtn = document.getElementById("btn_essai");
+EssaiBtn.addEventListener("focusout", (event) => {
+    console.log(a);
+
+  });
+
+
+
+</script>
+ -->
