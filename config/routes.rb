@@ -20,5 +20,9 @@ Rails.application.routes.draw do
     resources :glucose_levels, only: :index
   end
 
+  resources :consultation do
+    resources :prescriptions, only: [:new, :create, :update, :destroy]
+  end
+
 
 end
