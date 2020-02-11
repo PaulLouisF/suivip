@@ -32,6 +32,7 @@ class ConsultationsController < ApplicationController
   end
 
   private
+  
   def set_consultation
     @consultation = Consultation.find(params[:id])
   end
