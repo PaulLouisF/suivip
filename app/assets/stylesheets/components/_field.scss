@@ -1,0 +1,26 @@
+.simple_form .field-title {
+  font-family: Poppins;
+  font-style: normal;
+  opacity: 0.7;
+  line-height: 120%;
+  margin-bottom: 0px !important;
+  text-transform: uppercase;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.simple_form .form-field {
+  // field properties
+  background: #FFFFFF;
+  border: 1px solid #8D99AE;
+  border-radius: 5px;
+  
+  // text properties
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 180%;
+  color: #4F4F4F;
+  opacity: 0.7;
+}

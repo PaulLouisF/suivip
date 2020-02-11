@@ -1,23 +1,28 @@
-.notactive {
-  position: absolute;
-  width: 369px;
-  height: 49px;
-  left: 44px;
-  top: 529px;
-}
+.btn.nav-tab{
+  width: 325px;
+  height: 50px;
 
-.hover{
-  position: absolute;
-  width: 369px;
-  height: 49px;
-  left: 44px;
-  top: 598px;
-}
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 160%;
+  text-align: center;
+  color: $text-grey;
+  outline: none !important;
 
-.active{
-  position: absolute;
-  width: 369px;
-  height: 49px;
-  left: 44px;
-  top: 667px;
+  &:hover{
+    background: #FFFFFF;
+    box-shadow: 2px 4px 4px rgba(104, 131, 246, 0.5);
+    transform: translate(-1px, -1px);
+    transition: transform 120ms ease-in-out;
+    outline: none !important;
+  }
+  &:active, &:focus{
+    box-shadow: 2px 4px 4px rgba(104, 131, 246, 0.5);
+    transform: translate(-1px, -1px);
+    text-decoration-line: underline;    
+    color: $italianskyblue;
+    outline: none !important;
+  }
 }

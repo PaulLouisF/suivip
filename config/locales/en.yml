@@ -31,10 +31,3 @@
 
 en:
   hello: "Hello world"
-  simple_form:
-    labels:
-      patient:
-        first_name: Prénom
-        last_name: Nom
-        birdthdate: Date de Naissance
-        gender: Sexe

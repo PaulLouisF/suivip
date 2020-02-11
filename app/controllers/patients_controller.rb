@@ -1,6 +1,8 @@
 class PatientsController < ApplicationController
+  layout 'patient'
   before_action :authenticate_user!
-  before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_patient, only: [:show, :edit, :update, :destroy, :age]
+  require 'date'
 
   def index
     @patients = policy_scope(Patient)
@@ -10,7 +12,7 @@ class PatientsController < ApplicationController
 
   def new
     @patient = Patient.new
-    authorize @patient
+    # authorize @patient
   end
 
   def create
@@ -22,6 +24,7 @@ class PatientsController < ApplicationController
   end
 
   def show
+    @patient_age = @patient.age
   end
 
   def edit
