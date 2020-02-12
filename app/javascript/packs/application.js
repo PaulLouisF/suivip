@@ -50,7 +50,7 @@ var glucoseChart = new Chart(ctx, {
         datasets: [{
             label: 'Glycémies',
             data: cleanSet(),
-            pointRadius: 10,
+            pointRadius: 4,
             pointBackgroundColor: 'red',
         }]
     },
