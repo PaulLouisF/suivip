@@ -2,16 +2,7 @@
   <canvas id="glucoseChart" ></canvas>
 </div>
 
-<%= @glycemic_value%>
-<% @patient.glucose_levels.each do|glucose_level|%>
-  <%= glucose_level.measured_at%>
-<% end %>
-
-
-
-
 <div id="essaiT" data-dates_enable="<%= @glycemic_value.to_json %>"></div>
-<button id="btn_essai">hello</button>
 
 
 <!-- <script>
