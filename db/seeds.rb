@@ -71,7 +71,10 @@ profiles_users.each do |profile|
   user.save!
 end
 
- puts "Profiles users seed is ok"
+puts "Profiles users seed is ok"
+
+puts "Deleting existing #{Consultation.count} consultations ..."
+Consultation.destroy_all
 
 
 puts "Deleting existing #{Patient.count} patients ..."
@@ -196,7 +199,7 @@ profiles_patients.each do |profile|
   patient.save!
 end
 
-puts "Profiles patients seed is ok"
+puts "Profiles #{Patient.count} patients seed is ok"
 
 
 
@@ -207,25 +210,130 @@ GlucoseLevel.destroy_all
 puts "Creating new glucose_levels ..."
 
 
- glucoses_levels = [
+glucose_levels = [
   {
-    glucose_level: "200",
+    glucose_level: 203,
+    measured_at: "Tue, 11 Feb 2020 08:06:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 343,
+    measured_at: "Tue, 11 Feb 2020 08:30:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 256,
+    measured_at: "Tue, 11 Feb 2020 08:15:38 UTC +00:00",
+    patient_id: 4
+  },
+    {
+    glucose_level: 246,
+    measured_at: "Tue, 11 Feb 2020 08:20:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 500,
+    measured_at: "Tue, 11 Feb 2020 08:30:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 100,
+    measured_at: "Tue, 11 Feb 2020 07:20:38 UTC +00:00",
+    patient_id: 4
   },
 
+
+    {
+    glucose_level: 103,
+    measured_at: "Tue, 11 Feb 2020 12:06:38 UTC +00:00",
+    patient_id: 4
+  },
   {
-    glucose_level: "340"
-  }
+    glucose_level: 123,
+    measured_at: "Tue, 11 Feb 2020 12:30:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 256,
+    measured_at: "Tue, 11 Feb 2020 12:15:38 UTC +00:00",
+    patient_id: 4
+  },
+    {
+    glucose_level: 66,
+    measured_at: "Tue, 11 Feb 2020 13:20:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 44,
+    measured_at: "Tue, 11 Feb 2020 14:45:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 156,
+    measured_at: "Tue, 11 Feb 2020 11:55:38 UTC +00:00",
+    patient_id: 4
+  },
 
- ]
 
-glucoses_levels.each do |glucose_level|
-  glucose_level[:measured_at] = "#{Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :morning)}"
-  glucose_level = GlucoseLevel.new(glucose_level)
-  glucose_level.patient = Patient.all.sample(1).first
-  glucose_level.save!
+    {
+    glucose_level: 123,
+    measured_at: "Tue, 11 Feb 2020 19:06:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 140,
+    measured_at: "Tue, 11 Feb 2020 19:55:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 345,
+    measured_at: "Tue, 11 Feb 2020 18:47:38 UTC +00:00",
+    patient_id: 4
+  },
+    {
+    glucose_level: 246,
+    measured_at: "Tue, 11 Feb 2020 19:06:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 78,
+    measured_at: "Tue, 11 Feb 2020 20:35:38 UTC +00:00",
+    patient_id: 4
+  },
+  {
+    glucose_level: 66,
+    measured_at: "Tue, 11 Feb 2020 20:25:38 UTC +00:00",
+    patient_id: 4
+  },
+]
+
+glucose_levels.each do |glucose_level|
+  gly = GlucoseLevel.new(glucose_level)
+  gly.save!
 end
 
-puts "glucose levels seed is ok"
+
+
+
+# glucoses_levels = [
+#   {
+#     glucose_level: "200",
+#   },
+
+#   {
+#     glucose_level: "340"
+#   }
+
+#  ]
+
+# glucoses_levels.each do |glucose_level|
+#   glucose_level[:measured_at] = "#{Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :morning)}"
+#   glucose_level = GlucoseLevel.new(glucose_level)
+#   glucose_level.patient = Patient.all.sample(1).first
+#   glucose_level.save!
+# end
+
+# puts "glucose levels seed is ok"
 
 
 

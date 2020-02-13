@@ -1,3 +1,7 @@
+
+<%= link_to new_patient_consultation_path do %>
+  <button id="nav-new" class="btn-primary btn-new" onclick="openTab(event, 'new-consultation')">Ajouter une consultation</button>
+<% end %>
 <div class="row pt-4">
   <div class="col-xs-12 col-sm-12 col-md-4">
     <% @consultations.each do |consultation| %>
