@@ -62,7 +62,17 @@ profiles_users = [
     email: "didier@gmail.com",
     specialist: true,
     password: "lewagon"
+  },
+
+      {
+    first_name: "Didier",
+    last_name: "Rajaonari",
+    city: "Antsirabé",
+    email: "didier.raja@gmail.com",
+    specialist: false,
+    password: "lewagon"
   }
+
 
 ]
 

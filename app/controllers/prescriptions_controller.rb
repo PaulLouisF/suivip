@@ -6,5 +6,18 @@ class PrescriptionsController < ApplicationController
 
   def index
     @patient = Patient.find(params[:patient_id])
+    @consultations = @patient.consultations
+    @prescriptions = []
+
+    @consultations.each do |consultation|
+      @prescriptions << consultation.prescription
+    end
+  end
+
+  private
+
+  def prescription_params
+    params.require(:prescription).permit(:medicine_name, :dose_morning, :dose_noon, :dose_night, :medicine_name)
   end
 end
+
