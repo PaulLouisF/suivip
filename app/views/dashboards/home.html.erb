@@ -10,7 +10,7 @@
       </div>
       <section class="last-patients pt-3">
         <h2>Mes derniers patients consultés</h2>
-        
+
         <!-- PLEASE HELP -->
         <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
@@ -63,8 +63,8 @@
             </thead>
             <tbody>
               <% @patients.each do |patient| %>
-              <tr>                
-                <th scope="row"><%= link_to patient_path(patient) do %><%= patient.id %><% end %></th>
+              <tr>
+                <th scope="row"><%= link_to patient_consultations_path(patient) do %><%= patient.id %><% end %></th>
                 <td><%= patient.first_name %></td>
                 <td><%= patient.last_name %></td>
                 <td><%= patient.birthdate %></td>
