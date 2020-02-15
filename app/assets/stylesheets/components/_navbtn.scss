@@ -1,4 +1,4 @@
-.nav-btn {
+a.nav-btn {
   width: 200px;
   height: 44px;
   background: #FFFFFF;
@@ -10,6 +10,7 @@
   font-weight: bold;
   font-size: 16px;
   line-height: 250%;
+  text-decoration: none;
 
   // display: flex;
   // align-items: center;
@@ -31,14 +32,15 @@
   }
 }
 
-.nav-btn.focus{
+a.nav-btn.focus{
   border: 2px solid #FFFFFF;
   color: #FFFFFF;
   background: $deepkoamaru;
   outline: none !important;
 }
 
-#nav-infos {
+a#nav-infos {
+  text-decoration: none;
   &:hover, &:active, &:focus {
     background: $mustard;
     border: 2px solid $mustard;

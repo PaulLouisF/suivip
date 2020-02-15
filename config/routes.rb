@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   devise_for :users, :path => 'users', controllers: { confirmations: "confirmations" }
 
   get 'dashboard', to: 'dashboards#home', as: :dashboard
-  get 'moncompte', to: 'dashboards#userinformation', as: :mesinfosperso
+  get 'dashboard/mespatients', to: 'dashboards#patients', as: :mespatients
+  get 'dashboard/mestickets', to: 'dashboards#tickets', as: :mestickets
+  get 'dashboard/mesmedecins', to: 'dashboards#doctors', as: :mesmedecins
+  get 'moncompte', to: 'dashboards#userinformation', as: :moncompte
 
   authenticated :user do
-    root 'dashboards#home', as: :authenticated_root
+    root 'dashboards#patients', as: :authenticated_root
   end
 
   unauthenticated :user do
