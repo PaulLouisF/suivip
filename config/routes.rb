@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'tickets/new'
+  get 'tickets/index'
+  get 'tickets/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users, :path => 'users', controllers: { confirmations: "confirmations" }
 
@@ -24,7 +27,8 @@ Rails.application.routes.draw do
     resources :prescriptions, only: :index
   end
 
-  resources :consultations do
+  resources :consultations, only: [:show] do
     resources :prescriptions, only: [:new, :create]
+    resources :tickets, only: [:new, :create]
   end
 end

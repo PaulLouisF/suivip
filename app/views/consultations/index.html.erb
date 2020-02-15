@@ -4,7 +4,7 @@
 <% end %>
 <div class="row pt-4">
   <div class="col-xs-12 col-sm-12 col-md-4">
-    <% @consultations.each do |consultation| %>
+    <% @consultations.reverse_each do |consultation| %>
       <div class="m-2">
         <%= consultation.created_at %>
       </div>
@@ -12,7 +12,7 @@
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-8">
-    <% @consultations.each do |consultation| %>
+    <% @consultations.reverse_each do |consultation| %>
       <div class="card">
         <div class= "m-5 card-body">
           <div>
@@ -20,6 +20,7 @@
             <%= "Poids : #{consultation.weight}"%>
           </div>
           <%= "Compte rendu : #{consultation.report}" %>
+          <p><%= link_to "détails", consultation_path(consultation) %></p>
         </div>
       </div>
     <% end %>
