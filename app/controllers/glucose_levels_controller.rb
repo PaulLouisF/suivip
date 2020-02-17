@@ -8,6 +8,7 @@ class GlucoseLevelsController < ApplicationController
   def index
     # @patient = Patient.find(params[:patient_id])
     @glycemic_value = prep_glycemic_value
+    @glucose_level = GlucoseLevel.new
   end
 
   def new

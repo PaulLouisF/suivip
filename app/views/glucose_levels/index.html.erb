@@ -3,25 +3,10 @@
 </div>
 
 
-<%= link_to new_patient_glucose_level_path do %>
-  <button id="nav-new" class="btn-primary btn-new" onclick="openTab(event, 'new-glucoselevel')">Ajouter une glycemie</button>
-<% end %>
-
 <div id="essaiT" data-dates_enable="<%= @glycemic_value.to_json %>"></div>
 
 
-<!-- <script>
+<div>
+  <%= render partial: "new", glucose_level: @glucose_level %>
+</div>
 
-
-const a = JSON.parse(document.getElementById('essaiT').dataset.dates_enable);
-
-EssaiBtn = document.getElementById("btn_essai");
-EssaiBtn.addEventListener("focusbaout", (event) => {
-    console.log(a);
-
-  });
-
-
-
-</script>
- -->
