@@ -1,1 +1,21 @@
-<h1>hello</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Traitement</th>
+      <th scope="col">Nom du médecin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @prescriptions.each do |prescription| %>
+    <tr>
+      <td scope="row"><%= prescription[:created_at].strftime('%d-%m-%Y')%></td>
+      <td colspan="1"><%= prescription[:medicine_name]%><%=" - Dose du matin:#{prescription[:dose_morning]} - Dose Après midi:#{prescription[:dose_noon]} - Dose du soir:#{prescription[:dose_night]}"%></td>
+      <td><%= User.find(prescription.user_id).first_name %> <%= User.find(prescription.user_id).last_name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
