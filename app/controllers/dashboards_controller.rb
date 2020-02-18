@@ -30,9 +30,10 @@ class DashboardsController < ApplicationController
 
   def last_patients
     @consultations = Consultation.all
-    @consultations = @consultations[-3..-1]
-    @patients_list = []
-    @consultations.each { |consultation| @patients_list.push(consultation.patient) }
+    @unique_consulted_patients = @consultations.reverse.pluck(:patient_id).uniq.first(3)
+    @last = []
+    @unique_consulted_patients.each { |id| @last << Patient.find(id) }
+    return @last
   end
-  
+
 end
