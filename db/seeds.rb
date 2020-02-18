@@ -69,7 +69,7 @@ profiles_users = [
     last_name: "Rajaonari",
     city: "Antsirabé",
     email: "didier.raja@gmail.com",
-    specialist: false,
+    specialist: true,
     password: "lewagon"
   }
 

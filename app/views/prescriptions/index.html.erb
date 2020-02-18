@@ -3,7 +3,6 @@
     <tr>
       <th scope="col">Date</th>
       <th scope="col">Traitement</th>
-      <th scope="col">Id ordonnance</th>
       <th scope="col">Nom du médecin</th>
     </tr>
   </thead>
@@ -12,7 +11,6 @@
     <tr>
       <td scope="row"><%= prescription[:created_at].strftime('%d-%m-%Y')%></td>
       <td colspan="1"><%= prescription[:medicine_name]%><%=" - Dose du matin:#{prescription[:dose_morning]} - Dose Après midi:#{prescription[:dose_noon]} - Dose du soir:#{prescription[:dose_night]}"%></td>
-      <td><%= prescription.id %></td>
       <td><%= User.find(prescription.user_id).first_name %> <%= User.find(prescription.user_id).last_name %></td>
     </tr>
     <% end %>

@@ -17,7 +17,7 @@ class PrescriptionsController < ApplicationController
   private
 
   def prescription_params
-    params.require(:prescription).permit(:medicine_name, :dose_morning, :dose_noon, :dose_night, :medicine_name)
+    params.require(:prescription).permit(:medicine_name, :dose_morning, :dose_noon, :dose_night)
   end
 end
 
