@@ -8,7 +8,7 @@ class DashboardsController < ApplicationController
     @patients = policy_scope(Patient).paginate(page: params[:page], per_page: 10)
     last_patients
   end
-  
+
   def new_patient
     @patient = Patient.new
   end
