@@ -8,7 +8,7 @@ class DashboardsController < ApplicationController
     @patients = policy_scope(Patient).paginate(page: params[:page], per_page: 10)
     last_patients
   end
-  
+
   def new_patient
     @patient = Patient.new
   end
@@ -30,9 +30,9 @@ class DashboardsController < ApplicationController
 
   def last_patients
     @consultations = Consultation.all
-    @consultations = @consultations[-3..-1]
+    #@consultations = @consultations[-3..-1]
     @patients_list = []
     @consultations.each { |consultation| @patients_list.push(consultation.patient) }
   end
-  
+
 end
