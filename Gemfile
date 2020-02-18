@@ -17,6 +17,9 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'will_paginate', '~> 3.2.1'
+gem 'will_paginate-bootstrap4'
+gem 'algoliasearch-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

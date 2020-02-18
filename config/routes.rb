@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users, :path => 'users', controllers: { confirmations: "confirmations" }
 
-  get 'dashboard', to: 'dashboards#home', as: :dashboard
-  get 'dashboard/mespatients', to: 'dashboards#patients', as: :mespatients
-  get 'dashboard/mestickets', to: 'dashboards#tickets', as: :mestickets
-  get 'dashboard/mesmedecins', to: 'dashboards#doctors', as: :mesmedecins
-  get 'moncompte', to: 'dashboards#userinformation', as: :moncompte
+  get 'mypatients', to: 'dashboards#patients', as: :mypatients
+  get 'mypatients/new', to: 'dashboards#new_patient'
+  get 'mypatients/searchresult', to: 'dashboards#searchresult'
+  get 'mytickets', to: 'dashboards#tickets', as: :mytickets
+  get 'myaccount', to: 'dashboards#userinformation', as: :myaccount
 
   authenticated :user do
     root 'dashboards#patients', as: :authenticated_root

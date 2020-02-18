@@ -1,14 +1,13 @@
-.btn-primary {
-background: $bluelagoon;
+.btn.btn-primary, .btn-primary {
+  margin: auto 0;
+  background: $bluelagoon;
   border: 1px solid $bluelagoon;
   border-radius: 5px;
   font-weight: bold;
   font-size: 16px;
   padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #FFFFFF;
+  color: $white;
+  text-transform: uppercase;
 
   &:hover, &:active, &:focus{
    color: white;
@@ -32,26 +31,24 @@ background: $bluelagoon;
 
 
 .btn-secondary {
+  margin: auto 0;
   background: #FFFFFF;
   border: 1px solid $bluelagoon;
   border-radius: 5px;
   font-weight: bold;
   font-size: 16px;
   padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  text-align: center;
   color: $bluelagoon;
+  text-transform: uppercase;
 
   &:hover, &:active, &:focus{
    background-color: #046CE7;
    border: 1px solid #046CE7;
-   color: white;
+   color: $white;
    outline: none !important;
   }
 }
 
-.btn-disabled {
-  width: 140px;
-  height: 40px;
-}
+// .btn-disabled {
+//   margin: auto 0;
+// }

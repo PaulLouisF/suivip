@@ -13,17 +13,10 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
-    authorize @ticket
-    @ticket.consultation = @patient
-    @ticket.save
   end
-
-  def show
-  end
-
 
   private
+
   def set_consultation
     @consultation = Consultation.find(params[:id])
     @patient = Patient.find(@consultation.patient_id)

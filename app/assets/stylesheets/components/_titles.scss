@@ -40,3 +40,17 @@ p {
   color: $text-grey;
   opacity: 0.7;
 }
+
+th{
+  font-weight: Open Sans;
+  font-size: 14px;
+  font-weight: 600;
+  color: $white;
+  text-transform: uppercase;
+}
+
+td{
+  font-style: Open Sans;
+  font-weight: normal;
+  font-size: 14px;
+}

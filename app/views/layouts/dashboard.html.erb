@@ -21,16 +21,16 @@
         <nav class="">
           <div class="tab d-flex flex-column justify-content-center" id="nav-tab">
             <%# <button id="nav-patients" class="nav-btn text-center mt-3">Mes patients</button> %>
-            <%= link_to "Mes patients", mespatients_path, class: "nav-btn text-center" %>
+            <%= link_to "Mes patients", mypatients_path, class: "nav-btn text-center" %>
 
             <%# <button id="nav-tickets" class="nav-btn text-center">Mes tickets</button> %>
-            <%= link_to "Mes tickets", mestickets_path, class: "nav-btn text-center mt-3" %> 
+            <%= link_to "Mes tickets", mytickets_path, class: "nav-btn text-center mt-3" %> 
 
             <%# <button id="nav-medecins" class="nav-btn text-center mt-3">Mes médecins</button> %>
-            <%= link_to "Mes médecins", mespatients_path, class: "nav-btn text-center mt-3" %>
+            <%= link_to "Mes médecins", request.original_url, class: "nav-btn text-center mt-3" %>
             
             <%# <button id="nav-infos" class="nav-btn nav-infos text-center mt-3">Mon Compte</button> %>
-            <%= link_to "Mon compte", moncompte_path, class: "nav-btn text-center mt-3", id: "nav-infos" %>
+            <%= link_to "Mon compte", myaccount_path, class: "nav-btn text-center mt-3", id: "nav-infos" %>
           </div>
         </nav>
         <span id="logout" class="align-self-center">
@@ -50,8 +50,26 @@
     <!-- <p class="notice"><%= notice %></p> -->
     <p class="alert"><%= alert %></p>
     <script>
-    // function focus(params) {      
-    // }
+      document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+        // console.log(rows)
+        rows.forEach(row => {
+          row.addEventListener("click", () =>
+          window.location.href = row.dataset.href);
+        });
+      });
+
+      // document.addEventListener("DOMContentLoaded", () => {
+      //   const avatars = document.querySelectorAll("img.avatar-square");
+      //   avatars.forEach(avatar => {
+      //     avatar.addEventListener("mouseover", () =>
+      //       console.log(avatar)
+      //       let biggerAvatar = avatar.cloneNode;
+      //       biggerAvatar.className = "avatar-zoom";
+      //       document.body.appendChild(biggerAvatar);)
+      //     );
+      //   });
+      // });
     </script>
   </body>
 </html>

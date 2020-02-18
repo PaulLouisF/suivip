@@ -1,0 +1,15 @@
+<div class="align-self-start w-50">
+  <%= simple_form_for(@patient) do |f| %>
+    <%= f.error_notification %>
+    <div class="d-flex justify-content-between">
+      <%= f.input :first_name, placeholder: "Yann" %>
+      <%= f.input :last_name,  placeholder: "Randrianarison" %>
+    </div>
+    <%= f.input :birthdate, label_html: {class: "field-title"} %>
+    <%= f.input :gender, as: :radio_buttons, collection: ['M','F'], wrapper: :vertical_collection_inline %>
+    <%= f.input :address  %>
+    <%= f.input :city %>
+    <%= f.input :phone_number %>
+    <%= f.button :submit, class: "btn-primary w-100", value: "Enregistrer le patient" %>
+  <% end %>
+</div>
