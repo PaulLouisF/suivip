@@ -1,12 +1,9 @@
 <div class="container-fluid" style="height: 100vh;">
-  <div class="d-flex flex-row">
-    <h1 class="flex-grow-1 font-weight-bold">Mes Patients</h1>
-    <!-- <%= link_to("Nouveau Patient", new_patient_path, class: "btn-primary btn-new", style: "text-decoration: none;", role: "button") %> -->
-    <button id="nav-new" class="btn-primary btn-new">Ajouter un patient</button>
+  <div class="d-flex flex-row pt-3">
+    <h1 class="flex-grow-1">Mes tickets</h1>
   </div>
   <section class="last-patients pt-3">
-    <h2>Mes derniers patients consultés</h2>
-
+    <h2>Mes derniers tickets</h2>
     <!-- PLEASE HELP -->
     <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -43,7 +40,7 @@
 
   </section>
   <section class="patients pt-4">
-    <h2>Tous mes patients</h2>
+    <h2>Tous mes tickets</h2>
     <table class="table table-hover mt-3">
       <thead class="thead-dark">
         <tr>
@@ -58,18 +55,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @patients.each do |patient| %>
-        <tr>
-          <th scope="row"><%= link_to patient_consultations_path(patient) do %><%= patient.id %><% end %></th>
-          <td><%= patient.first_name %></td>
-          <td><%= patient.last_name %></td>
-          <td><%= patient.birthdate %></td>
-          <td><%= patient.gender %></td>
-          <td></td>
-          <td></td>
-          <td><%= patient.created_at %></td>
-        </tr>
-        <% end %>
+        <%# call tickets here with an each do loop %>
       </tbody>
     </table>
   </section>

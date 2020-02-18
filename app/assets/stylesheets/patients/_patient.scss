@@ -5,8 +5,8 @@
   
   &:hover{
     transform: translateX(-2px);
-    transition: transform 120ms ease-in-out;
-    // &:after{
+    transition: transform 100ms ease-in;
+    // &::after{
     //   transform: translateX(+2px);
     //   transition: 120ms ease-in;
     // }
@@ -17,7 +17,7 @@
 #patient-file{
   border-radius: 40px 10px 5px 5px;
   // border: solid 1px $deepkoamaru;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: -5px 10px 10px 10px rgba(0, 0, 0, 0.2);
   min-height: 90vh;
   width: 85vw;
 }

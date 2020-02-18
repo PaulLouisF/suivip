@@ -17,8 +17,7 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params)
     authorize @patient
     @patient.save
-
-    redirect_to dashboard_path
+    redirect_to mypatients_path
   end
 
   def show

@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
+  get 'tickets/new'
+  get 'tickets/index'
+  get 'tickets/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users, :path => 'users', controllers: { confirmations: "confirmations" }
 
-  get 'dashboard', to: 'dashboards#home', as: :dashboard
-  get 'moncompte', to: 'dashboards#userinformation', as: :mesinfosperso
+  get 'mypatients', to: 'dashboards#patients', as: :mypatients
+  get 'mypatients/new', to: 'dashboards#new_patient'
+  get 'mypatients/searchresult', to: 'dashboards#searchresult'
+  get 'mytickets', to: 'dashboards#tickets', as: :mytickets
+  get 'myaccount', to: 'dashboards#userinformation', as: :myaccount
 
   authenticated :user do
-    root 'dashboards#home', as: :authenticated_root
+    root 'dashboards#patients', as: :authenticated_root
   end
 
   unauthenticated :user do
@@ -21,7 +27,8 @@ Rails.application.routes.draw do
     resources :prescriptions, only: :index
   end
 
-  resources :consultations do
+  resources :consultations, only: [:show] do
     resources :prescriptions, only: [:new, :create]
+    resources :tickets, only: [:new, :create]
   end
 end

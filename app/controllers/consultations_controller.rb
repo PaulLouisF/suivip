@@ -1,15 +1,15 @@
 class ConsultationsController < ApplicationController
   layout 'patient'
   before_action :authenticate_user!
+  before_action :set_patient, only: [:index, :new, :create]
+  before_action :set_consultation, only: [:show]
   skip_after_action :verify_policy_scoped, only: [:index]
 
   def index
-    @patient = Patient.find(params[:patient_id])
     @consultations = @patient.consultations
   end
 
   def new
-    @patient = Patient.find(params[:patient_id])
     @consultation = Consultation.new
     authorize @consultation
   end
@@ -17,16 +17,28 @@ class ConsultationsController < ApplicationController
   def create
     @consultation = Consultation.new(consultation_params)
     authorize @consultation
-    @patient = Patient.find(params[:patient_id])
     @consultation.patient = @patient
     @consultation.save
-    redirect_to patient_consultations_path(@patient)
+    redirect_to consultation_path(@consultation)
+  end
+
+  def show
+    authorize @consultation
   end
 
   private
 
   def consultation_params
     params.require(:consultation).permit(:height, :weight, :report)
+  end
+
+  def set_patient
+    @patient = Patient.find(params[:patient_id])
+  end
+
+  def set_consultation
+    @consultation = Consultation.find(params[:id])
+    @patient = Patient.find(@consultation.patient_id)
   end
 
 end

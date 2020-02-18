@@ -1,30 +1,32 @@
+<!-- <div class="d-flex justify-content-end">
+  <%= link_to new_patient_consultation_path do %>
+    <button id="nav-new" class="btn-primary btn-new" onclick="openTab(event, 'new-consultation')">Ajouter une consultation</button>
+  <% end %>
+</div> -->
 
-<%= link_to new_patient_consultation_path do %>
-  <button id="nav-new" class="btn-primary btn-new" onclick="openTab(event, 'new-consultation')">Ajouter une consultation</button>
-<% end %>
-<div class="row pt-4">
-  <div class="col-xs-12 col-sm-12 col-md-4">
-    <% @consultations.each do |consultation| %>
-      <div class="m-2">
-        <%= consultation.created_at %>
-      </div>
-    <% end %>
+<div class="row">
+  <div class="col-4">
+    <div id="list-example" class="list-group">
+      <% @consultations.reverse_each.with_index do |consultation, index| %>
+        <a class="list-group-item list-group-item-action" href="#list-item-<%= index %>"><%= consultation.created_at.strftime('%d-%m-%Y') %> <%= index %></a>
+      <% end %> 
+    </div>
   </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-8">
-    <% @consultations.each do |consultation| %>
-      <div class="card">
-        <div class= "m-5 card-body">
-          <div>
-            <%= "Taille : #{consultation.height}" %>
-            <%= "Poids : #{consultation.weight}"%>
+  <div class="col-8">
+    <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example" style="position: relative; height: 400px; overflow-y: scroll;">
+      <% @consultations.reverse_each.with_index do |consultation, index| %>
+          <h4 id="list-item-<%= index %>"><%= consultation.created_at.strftime('%d-%m-%Y') %> <%= index %></h4>
+          <div class="card" style="height: 300px;">
+            <ul>
+              <li><%= "Taille : #{consultation.height}" %></li>
+              <li><%= "Poids : #{consultation.weight}"%></li>
+              <li><%= "Compte rendu : #{consultation.report}" %></li>
+              <li><%= link_to "détails", consultation_path(consultation) %></li>
+            </ul>
           </div>
-          <%= "Compte rendu : #{consultation.report}" %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+
 </div>
-
-
-

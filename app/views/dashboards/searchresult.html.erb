@@ -1,0 +1,53 @@
+<div class="container-fluid" style="height: 100vh;">
+  <div class="d-flex flex-row pt-3">
+    <h1 class="flex-grow-1">Mes patients</h1>
+    <%= link_to("Nouveau Patient", mypatients_new_path, class: "btn-primary btn-new", style: "text-decoration: none;", role: "button") %>
+    <%# <button id="nav-new" class="btn-primary btn-new">Ajouter un patient</button> %>
+  </div>
+  <section class="patients pt-3">
+    <% if @results.empty? %>
+    <h2>Aucun résultat n'a été trouvé pour votre recherche</h2>
+    <% else %>
+      <h2><%= @results.size %> résultats ont été trouvés pour votre recherche</h2>
+    <% end %>
+
+    <%= simple_form_for :search, url: mypatients_searchresult_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input :searchedword, input_html: {value: ""}, label: false %>   
+      <%= f.submit "rechercher", class: "btn-primary btn-new" %>
+    <% end %>
+
+    <table class="table table-hover mt-3">
+      <thead>
+        <tr>
+          <th class="align-middle text-center mx-0 px-0" scope="col"><i class="git fas fa-user" style="font-size: 20px; color: #ffffff;"></i></th>
+          <th class="align-middle" scope="col">Prénom</th>
+          <th class="align-middle" scope="col">Nom</th>
+          <th class="align-middle" scope="col">Âge</th>
+          <th class="align-middle" scope="col">Sexe</th>
+          <th class="align-middle" scope="col">Dernière consultation</th>
+          <th class="align-middle" scope="col">Ticket</th>
+          <th class="align-middle" scope="col">Suivi depuis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @results.empty? %>
+          <h3>Désolé, aucun résultat n'a été trouvé pour cette recherche</h3>
+        <% else %>
+          <% @results.each_with_index do |patient, index| %>
+            <tr class="" data-href="<%= patient_consultations_path(patient) %>">
+              <td class="avatar-placeholder p-1 text-center"><%= image_tag "https://source.unsplash.com/random/4#{index}x4#{index}", class: "avatar-square"%></th>
+              <td><%= patient.first_name %></td>
+              <td><%= patient.last_name %></td>
+              <td><%= patient.age %></td>
+              <td><%= patient.gender %></td>
+              <td><%= patient.consultations.last.nil? ? "Aucune consultation" : patient.consultations.last.created_at.strftime('%d/%m/%Y') %></td>
+              <td></td>
+              <td><%= patient.created_at.strftime('%d/%m/%Y') %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @results, list_classes: %w(pagination justify-content-center), previous_label: "", next_label: "" %>
+  </section>
+</div>

@@ -20,20 +20,23 @@
         </div>
         <nav class="">
           <div class="tab d-flex flex-column justify-content-center" id="nav-tab">
-            <button id="nav-tickets" class="nav-btn text-center" onclick="openTab(event, 'tickets')">Mes tickets</button>
-            <button id="nav-patients" class="nav-btn text-center mt-3" onclick="openTab(event, 'patients')">Mes patients</button>
-            <button id="nav-medecins" class="nav-btn text-center mt-3" onclick="openTab(event, 'medecins')">Mes médecins</button>
+            <%# <button id="nav-patients" class="nav-btn text-center mt-3">Mes patients</button> %>
+            <%= link_to "Mes patients", mypatients_path, class: "nav-btn text-center" %>
+
+            <%# <button id="nav-tickets" class="nav-btn text-center">Mes tickets</button> %>
+            <%= link_to "Mes tickets", mytickets_path, class: "nav-btn text-center mt-3" %> 
+
+            <%# <button id="nav-medecins" class="nav-btn text-center mt-3">Mes médecins</button> %>
+            <%= link_to "Mes médecins", request.original_url, class: "nav-btn text-center mt-3" %>
             
-            <button id="nav-infos" class="nav-btn nav-infos text-center mt-3" onclick="openTab(event, 'mesinfos')">Mon Compte</button>
+            <%# <button id="nav-infos" class="nav-btn nav-infos text-center mt-3">Mon Compte</button> %>
+            <%= link_to "Mon compte", myaccount_path, class: "nav-btn text-center mt-3", id: "nav-infos" %>
           </div>
         </nav>
         <span id="logout" class="align-self-center">
-          <i class="git fas fa-sign-out-alt" style="font-size: 16px; color: white;"></i>
+          <i class="fas fa-sign-out-alt" style="font-size: 16px; color: white;"></i>
           <%= link_to "Me déconnecter", destroy_user_session_path, method: :delete, class: "align-self-end" %>
         </span>
-
-
-
       </div>
     </div>
     <div class="col-9 px-2">
@@ -43,31 +46,30 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <%= render 'shared/flashes' %>
-    <p class="notice"><%= notice %></p>
+    <%# <%= render 'shared/flashes' %>
+    <!-- <p class="notice"><%= notice %></p> -->
     <p class="alert"><%= alert %></p>
     <script>
-    document.getElementById("nav-tickets").click();
-    function openTab(evt, tabName) {
-      // Declare all variables
-      var i, tabcontent, tablinks;
+      document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+        // console.log(rows)
+        rows.forEach(row => {
+          row.addEventListener("click", () =>
+          window.location.href = row.dataset.href);
+        });
+      });
 
-      // Get all elements with class="tabcontent" and hide them
-      tabcontent = document.getElementsByClassName("tab-content");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-
-      // Get all elements with class="tablinks" and remove the class "active"
-      tablinks = document.getElementsByClassName("nav-btn");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" focus", "");
-      }
-
-      // Show the current tab, and add an "active" class to the button that opened the tab
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " focus";
-    }
+      // document.addEventListener("DOMContentLoaded", () => {
+      //   const avatars = document.querySelectorAll("img.avatar-square");
+      //   avatars.forEach(avatar => {
+      //     avatar.addEventListener("mouseover", () =>
+      //       console.log(avatar)
+      //       let biggerAvatar = avatar.cloneNode;
+      //       biggerAvatar.className = "avatar-zoom";
+      //       document.body.appendChild(biggerAvatar);)
+      //     );
+      //   });
+      // });
     </script>
   </body>
 </html>

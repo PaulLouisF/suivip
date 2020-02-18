@@ -1,0 +1,23 @@
+a.page-link, span.page-link{
+  border: none;
+  color: $deepkoamaru;
+  text-decoration: none;
+  &:hover{
+    color: $white;
+    background: $italianskyblue;
+  }
+  &:active, &:focus{
+    box-shadow: none !important;
+  }
+}
+
+.page-item.active > span{
+  background-color: $deepkoamaru !important;
+  color: $white;
+  font-weight: bold;
+}
+
+.page-item.disabled > span{
+  background-color: $white !important;
+  color: $deepkoamaru;
+}
