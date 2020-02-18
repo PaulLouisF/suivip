@@ -4,24 +4,29 @@
   <% end %>
 </div> -->
 
-<div>
-  <div id="list-example" class="list-group">
-    <% @consultations.reverse_each.with_index do |consultation, index| %>
-      <a class="list-group-item list-group-item-action" href="#<%= index %>"><%= consultation.created_at.strftime('%d-%m-%Y') %> <%= index %></a>
-    <% end %> 
+<div class="row">
+  <div class="col-4">
+    <div id="list-example" class="list-group">
+      <% @consultations.reverse_each.with_index do |consultation, index| %>
+        <a class="list-group-item list-group-item-action" href="#list-item-<%= index %>"><%= consultation.created_at.strftime('%d-%m-%Y') %> <%= index %></a>
+      <% end %> 
+    </div>
   </div>
 
-  <div data-spy="scroll" data-target="#list-example" data-offset="1" class="scrollspy-example" style="position: relative;">
-    <% @consultations.reverse_each.with_index do |consultation, index| %>
-      <div class="card">
-        <h4 id="<%= index %>"><%= index %></h4>
-        <ul>
-          <li><%= "Taille : #{consultation.height}" %></li>
-          <li><%= "Poids : #{consultation.weight}"%></li>
-          <li><%= "Compte rendu : #{consultation.report}" %></li>
-          <li><%= link_to "détails", consultation_path(consultation) %></li>
-        </ul>
-      </div>
-    <% end %>
+  <div class="col-8">
+    <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example" style="position: relative; height: 400px; overflow-y: scroll;">
+      <% @consultations.reverse_each.with_index do |consultation, index| %>
+          <h4 id="list-item-<%= index %>"><%= consultation.created_at.strftime('%d-%m-%Y') %> <%= index %></h4>
+          <div class="card" style="height: 300px;">
+            <ul>
+              <li><%= "Taille : #{consultation.height}" %></li>
+              <li><%= "Poids : #{consultation.weight}"%></li>
+              <li><%= "Compte rendu : #{consultation.report}" %></li>
+              <li><%= link_to "détails", consultation_path(consultation) %></li>
+            </ul>
+          </div>
+      <% end %>
+    </div>
   </div>
+
 </div>
