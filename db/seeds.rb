@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-puts "Deleting existing #{User.count} users ..."
+# puts "Deleting existing #{User.count} users ..."
 User.destroy_all
 
 puts "Creating new users ..."
@@ -219,101 +219,103 @@ GlucoseLevel.destroy_all
 
 puts "Creating new glucose_levels ..."
 
+n = Patient.all.size
+first = Patient.all.pluck(:id).first
 
 glucose_levels = [
   {
     glucose_level: 203,
     measured_at: "Tue, 11 Feb 2020 08:06:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 343,
     measured_at: "Tue, 11 Feb 2020 08:30:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 256,
     measured_at: "Tue, 11 Feb 2020 08:15:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
     {
     glucose_level: 246,
     measured_at: "Tue, 11 Feb 2020 08:20:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 500,
     measured_at: "Tue, 11 Feb 2020 08:30:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 100,
     measured_at: "Tue, 11 Feb 2020 07:20:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
 
 
     {
     glucose_level: 103,
     measured_at: "Tue, 11 Feb 2020 12:06:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 123,
     measured_at: "Tue, 11 Feb 2020 12:30:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 256,
     measured_at: "Tue, 11 Feb 2020 12:15:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
     {
     glucose_level: 66,
     measured_at: "Tue, 11 Feb 2020 13:20:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 44,
     measured_at: "Tue, 11 Feb 2020 14:45:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 156,
     measured_at: "Tue, 11 Feb 2020 11:55:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
 
 
     {
     glucose_level: 123,
     measured_at: "Tue, 11 Feb 2020 19:06:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 140,
     measured_at: "Tue, 11 Feb 2020 19:55:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 345,
     measured_at: "Tue, 11 Feb 2020 18:47:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
     {
     glucose_level: 246,
     measured_at: "Tue, 11 Feb 2020 19:06:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 78,
     measured_at: "Tue, 11 Feb 2020 20:35:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
   {
     glucose_level: 66,
     measured_at: "Tue, 11 Feb 2020 20:25:38 UTC +00:00",
-    patient_id: 4
+    patient_id: first
   },
 ]
 
