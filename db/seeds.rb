@@ -220,7 +220,7 @@ GlucoseLevel.destroy_all
 puts "Creating new glucose_levels ..."
 
 n = Patient.all.size
-first = Patient.first.pluck(:id)
+first = Patient.all.pluck(:id).first
 
 glucose_levels = [
   {
