@@ -8,7 +8,7 @@
 
 require 'faker'
 # puts "Deleting existing #{User.count} users ..."
-# User.destroy_all
+User.destroy_all
 
 puts "Creating new users ..."
 
