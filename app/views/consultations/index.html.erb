@@ -9,7 +9,7 @@
     <div id="list-example" class="list-group">
       <% @consultations.reverse_each.with_index do |consultation, index| %>
         <a class="list-group-item list-group-item-action" href="#list-item-<%= index %>"><%= consultation.created_at.strftime('%d-%m-%Y') %> <%= index %></a>
-      <% end %> 
+      <% end %>
     </div>
   </div>
 
@@ -24,6 +24,34 @@
               <li><%= "Compte rendu : #{consultation.report}" %></li>
               <li><%= link_to "détails", consultation_path(consultation) %></li>
             </ul>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Nouveau Ticket
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Ticket</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= simple_form_for [@consultation, @ticket] do |f| %>
+                    <%= f.input :question %>
+                    <%= f.submit "Ajouter un Ticket", class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermé</button>
+                  <button type="button" class="btn btn-primary">Sauvegarder</button>
+          </div>
+          <!-- Button trigger modal -->
+                </div>
+              </div>
+            </div>
           </div>
       <% end %>
     </div>
