@@ -20,8 +20,14 @@ class GlucoseLevelsController < ApplicationController
     @glucose_level = GlucoseLevel.new(glucose_level_params)
     authorize @glucose_level
     @glucose_level.patient = @patient
-    @glucose_level.save
-    redirect_to patient_glucose_levels_path(@patient)
+    if @glucose_level.save
+      respond_to do |format|
+        format.html { redirect_to patient_glucose_levels_path(@patient) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    end
+
+    # redirect_to patient_glucose_levels_path(@patient)
   end
 
   def prep_glycemic_value
