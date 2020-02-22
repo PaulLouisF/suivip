@@ -10,6 +10,8 @@ class PrescriptionsController < ApplicationController
     @prescriptions = []
 
     @consultations.each do |consultation|
+      next if consultation.prescription.nil?
+      
       @prescriptions << consultation.prescription
     end
   end
