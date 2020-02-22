@@ -1,23 +1,16 @@
-<div class="w-50 h-50">
-  <canvas id="glucoseChart" ></canvas>
+
+<div class="row d-flex justify-content-center">
+
+  <div class="w-75 h-75">
+    <canvas id="glucoseChart" aria-label="Hello ARIA World" role="img"></canvas>
+  </div>
+
+
+  <div id="essaiT" data-dates_enable="<%= @glycemic_value.to_json %>"></div>
+
+
+  <div>
+    <%= render partial: "new", glucose_level: @glucose_level %>
+  </div>
+
 </div>
-
-
-<div id="essaiT" data-dates_enable="<%= @glycemic_value.to_json %>"></div>
-
-
-<!-- <script>
-
-
-const a = JSON.parse(document.getElementById('essaiT').dataset.dates_enable);
-
-EssaiBtn = document.getElementById("btn_essai");
-EssaiBtn.addEventListener("focusout", (event) => {
-    console.log(a);
-
-  });
-
-
-
-</script>
- -->

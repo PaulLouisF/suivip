@@ -1,0 +1,7 @@
+<%= simple_form_for [@patient, @glucose_level], remote: true do |f| %>
+  <div class="row">
+    <%= f.input :measured_at %>
+    <%= f.input :glucose_level%>
+    <%= f.submit "Ajouter une glycemie", class: "btn btn-primary" %>
+  </div>
+<% end %>
