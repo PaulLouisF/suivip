@@ -16,21 +16,27 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     authorize @ticket
-    @ticket.consultation = @consultation
+    # @consultation = patient.consultations.last
+    @ticket.consultation = @patient.consultations.last
     @ticket.asking_user_id = current_user.id
     @ticket.save
+    redirect_to patient_consultations_path(@patient)
+
+  end
+
+  
+  private
+
+  def auto_response
   end
 
   def set_patient
-    @patient = @consultation.patient
-    authorize @patient
+    @patient = Patient.find(params[:patient_id])
   end
-
-  private
-
+  
   def set_consultation
-    @consultation = Consultation.find(params[:consultation_id])
-    #@patient = Patient.find(@consultation.patient_id)
+    @consultation = Consultation.all.last
+    @patient = Patient.find(@consultation.patient_id)
   end
 
   def ticket_params

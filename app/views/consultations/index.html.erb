@@ -11,9 +11,10 @@
     <div id="list-example" class="list-group">
       <% @consultations.reverse_each.with_index do |consultation, index| %>
         <a class="list-group-item list-group-item-action" href="#list-item-<%= index %>"><%= consultation.created_at.strftime('%d-%m-%Y') %> <%= index %></a>
-      <% end %> 
+      <% end %>
     </div>
   </div>
+
 
   <div class="col-8">
     <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example" style="position: relative; height: 400px; overflow-y: scroll;">
@@ -26,7 +27,17 @@
               <li><%= "Compte rendu : #{consultation.report}" %></li>
               <li><%= link_to "détails", consultation_path(consultation) %></li>
             </ul>
-          </div>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn-primary btn-new" data-toggle="modal" data-target="#exampleModalCenter">
+        Créer un ticket
+      </button>
+
+      <%= render '/tickets/new', ticket: @ticket, patient: @patient %>
+      <%#= render 'shared/newticket_form' %>
+
+      <div> AFFICHER LES INFOS DU TICKET ICI <%#= consultation.tickets.last.question %> </div>
+      
       <% end %>
     </div>
   </div>
