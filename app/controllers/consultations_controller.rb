@@ -1,7 +1,7 @@
 class ConsultationsController < ApplicationController
   layout 'patient'
   before_action :authenticate_user!
-  before_action :set_patient, only: [:index, :new, :create]
+  before_action :set_patient, only: [:index, :new, :create, :new_ticket]
   before_action :set_consultation, only: [:show]
   skip_after_action :verify_policy_scoped, only: [:index]
 
@@ -9,7 +9,7 @@ class ConsultationsController < ApplicationController
     @consultations = @patient.consultations
     @ticket = Ticket.new
   end
-
+  
   def new
     @consultation = Consultation.new
     authorize @consultation

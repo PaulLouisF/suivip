@@ -25,10 +25,10 @@ Rails.application.routes.draw do
     resources :consultations, only: [:index, :new, :create]
     resources :glucose_levels, only: :index
     resources :prescriptions, only: :index
+    resources :tickets, only: [:new, :create]
   end
-
+  
   resources :consultations, only: [:show] do
     resources :prescriptions, only: [:new, :create]
-    resources :tickets, only: [:new, :create]
   end
 end
