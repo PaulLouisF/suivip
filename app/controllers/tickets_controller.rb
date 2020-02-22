@@ -19,6 +19,7 @@ class TicketsController < ApplicationController
     @ticket.consultation = @consultation
     @ticket.asking_user_id = current_user.id
     @ticket.save
+    redirect_to patient_consultations_path(@patient)
   end
 
   def set_patient

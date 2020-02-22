@@ -7,6 +7,7 @@ class ConsultationsController < ApplicationController
 
   def index
     @consultations = @patient.consultations
+    @ticket = Ticket.new
   end
 
   def new
