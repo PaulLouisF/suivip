@@ -3,21 +3,19 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">Solliciter un spécialiste</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body d-flex flex-column">
         <%= simple_form_for [@patient, @ticket] do |f| %>
-          <%= f.input :question %>
-          <%= f.submit "Ajouter un Ticket", class: "btn btn-primary" %>
+          <%= f.input :question, label: "Description", input_html: { rows: 10 } %>
+          <%= f.submit "Ajouter un Ticket", class: "btn btn-secondary align-self-end" %>
         <% end %>
+        <!-- <button type="button" class="btn btn-secondary align-self-end">Envoyer</button> -->
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      </div> 
     </div>
   </div>
 </div>

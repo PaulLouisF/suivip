@@ -2,6 +2,7 @@
   <%= link_to new_patient_consultation_path do %>
     <button id="nav-new" class="btn-primary btn-new">Créer une consultation</button>
   <% end %>
+
 </div> -->
 
 <div class="row no-gutters">
@@ -16,7 +17,6 @@
     </div>
   </div>
 
-
   <div class="col-9">
     <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
       <% @consultations.reverse_each.with_index do |consultation, index| %>
@@ -27,14 +27,39 @@
               <li><%= "Poids : #{consultation.weight}"%></li>
               <li><%= "Compte rendu : #{consultation.report}" %></li>
             </ul>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn-primary btn-new" data-toggle="modal" data-target="#exampleModalCenter">Créer un ticket</button>
-            <%= render '/tickets/new', ticket: @ticket, patient: @patient %>
 
-            <div> AFFICHER LES INFOS DU TICKET ICI
-              <%#= consultation.tickets.last.question %>
-            </div>
-          </div>
+      <!-- Button trigger modal -->
+            <button type="button" class="btn-primary btn-new" data-toggle="modal" data-target="#exampleModalCenter">
+              Créer un ticket
+            </button>
+
+            <%= render '/tickets/new', ticket: @ticket, patient: @patient %>
+            <%#= render 'shared/newticket_form' %>
+
+            <% if consultation.tickets.empty? %> 
+              <p>
+                <i class="fas fa-quote-left"></i>PAS DE TICKETS<i class="fas fa-quote-right"></i>
+              </p>
+            <% else %>
+              <div>
+                <div><i class="flex-row fas fa-user-circle"></i>
+                <div class="subheader">
+                  <%= current_user.first_name %> 
+                </div>
+                <div class="ticket-question">
+                  <div>
+                    <i class="fas fa-quote-left"></i> <%= consultation.tickets.last.question %> <i class="fas fa-quote-right"></i>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="pull-right">
+                  <strong class="td">DOCTOR</strong> <small class="pull-right text-muted">
+                <p>
+                  <i class="fas fa-quote-left"></i>PAS DE TICKETS<i class="fas fa-quote-right"></i>
+                </p>
+              </div>
+            <% end %>
       <% end %>
     </div>
   </div>
