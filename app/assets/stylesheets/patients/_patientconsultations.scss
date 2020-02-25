@@ -1,0 +1,34 @@
+// *** SCROLLSPY LIST-ITEMS *** 
+.list-group-item{
+  background-color: #ffffff;
+  color: $eerieblack;
+  font-weight: normal;
+  text-align: center;
+}
+
+.list-group-item.active{
+  background-color: $queenblue;
+  border-color: $queenblue;
+  color: #ffffff;
+  
+  font-weight: bold;
+  text-align: center;
+}
+
+.list-group-item:first-child{
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+
+.list-group-item:nth-last-child(1){
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+
+
+  // *** CARDS WRAPPER ***
+div.scrollspy-example{
+  // background: $mustard;
+  height: 500px;
+  overflow-y: scroll;
+}
