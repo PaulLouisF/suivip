@@ -21,3 +21,14 @@
     -o-transition: transform 100ms ease-in;
   }
 }
+
+.ticket-card{
+  width: 290px;
+  height: 150px;
+  padding: 8px 8px;
+  margin: 0px 16px;
+  border-radius: 5px;
+  border: 1px solid #EDF2F4; 
+  background: $white;
+  border-radius: 5px;
+}
