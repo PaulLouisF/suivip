@@ -20,7 +20,7 @@ class ConsultationsController < ApplicationController
     authorize @consultation
     @consultation.patient = @patient
     @consultation.save
-    redirect_to consultation_path(@consultation)
+    redirect_to patient_consultations_path(@patient)
   end
 
   def show

@@ -26,3 +26,21 @@
     outline: none !important;
   }
 }
+
+.btn.nav-tab.active{
+  width: 325px;
+  height: 50px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 160%;
+  text-align: center;
+  color: $text-grey;
+  outline: none !important;
+  box-shadow: 2px 4px 4px rgba(104, 131, 246, 0.5);
+  transform: translate(-1px, -1px);
+  text-decoration-line: underline;    
+  color: $italianskyblue;
+  outline: none !important;
+}

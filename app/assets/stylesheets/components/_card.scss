@@ -21,3 +21,20 @@
     -o-transition: transform 100ms ease-in;
   }
 }
+
+.consultation-card-header{
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 16px;
+}
+
+.consultation-card{
+  height: 375px;
+  padding: 8px 8px;
+  margin: -28px 16px 16px 16px;
+  border-radius: 5px;
+  border: 1px solid #EDF2F4; 
+  background: $white;
+  border-radius: 5px;
+  border: 1px solid #EDF2F4;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
