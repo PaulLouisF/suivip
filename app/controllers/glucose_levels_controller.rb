@@ -23,11 +23,9 @@ class GlucoseLevelsController < ApplicationController
     if @glucose_level.save
       respond_to do |format|
         format.html { redirect_to patient_glucose_levels_path(@patient) }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
+        format.js  # <-- will render `app/views/glucose_levels/create.js.erb`
       end
     end
-
-    # redirect_to patient_glucose_levels_path(@patient)
   end
 
   def prep_glycemic_value

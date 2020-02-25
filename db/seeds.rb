@@ -63,7 +63,6 @@ profiles_users = [
     specialist: true,
     password: "lewagon"
   },
-
       {
     first_name: "Didier",
     last_name: "Rajaonari",
@@ -72,8 +71,6 @@ profiles_users = [
     specialist: true,
     password: "lewagon"
   }
-
-
 ]
 
 profiles_users.each do |profile|
@@ -198,7 +195,6 @@ profiles_patients = [
     city: "Toamasina",
     phone_number: "+261 642856319"
   }
-
 ]
 
 
@@ -244,12 +240,12 @@ glucose_levels = [
     patient_id: first
   },
   {
-    glucose_level: 500,
+    glucose_level: 370,
     measured_at: "Tue, 11 Feb 2020 08:30:38 UTC +00:00",
     patient_id: first
   },
   {
-    glucose_level: 100,
+    glucose_level: 307,
     measured_at: "Tue, 11 Feb 2020 07:20:38 UTC +00:00",
     patient_id: first
   },
@@ -271,12 +267,12 @@ glucose_levels = [
     patient_id: first
   },
     {
-    glucose_level: 66,
+    glucose_level: 86,
     measured_at: "Tue, 11 Feb 2020 13:20:38 UTC +00:00",
     patient_id: first
   },
   {
-    glucose_level: 44,
+    glucose_level: 64,
     measured_at: "Tue, 11 Feb 2020 14:45:38 UTC +00:00",
     patient_id: first
   },
@@ -285,10 +281,8 @@ glucose_levels = [
     measured_at: "Tue, 11 Feb 2020 11:55:38 UTC +00:00",
     patient_id: first
   },
-
-
     {
-    glucose_level: 123,
+    glucose_level: 183,
     measured_at: "Tue, 11 Feb 2020 19:06:38 UTC +00:00",
     patient_id: first
   },
@@ -298,22 +292,22 @@ glucose_levels = [
     patient_id: first
   },
   {
-    glucose_level: 345,
+    glucose_level: 175,
     measured_at: "Tue, 11 Feb 2020 18:47:38 UTC +00:00",
     patient_id: first
   },
     {
-    glucose_level: 246,
+    glucose_level: 146,
     measured_at: "Tue, 11 Feb 2020 19:06:38 UTC +00:00",
     patient_id: first
   },
   {
-    glucose_level: 78,
+    glucose_level: 108,
     measured_at: "Tue, 11 Feb 2020 20:35:38 UTC +00:00",
     patient_id: first
   },
   {
-    glucose_level: 66,
+    glucose_level: 109,
     measured_at: "Tue, 11 Feb 2020 20:25:38 UTC +00:00",
     patient_id: first
   },
@@ -323,6 +317,76 @@ glucose_levels.each do |glucose_level|
   gly = GlucoseLevel.new(glucose_level)
   gly.save!
 end
+
+
+
+puts "Deleting existing #{Consultation.count} consultations ..."
+Consultation.destroy_all
+
+puts "Creating new consultations ..."
+
+
+consultations = [
+    {
+    weight: 33,
+    height: 148,
+    report: "Aina est très fatiguée et a tres soif. Elle a beaucoup maigri ces derniers mois. Une glycémie à jeun met en évidence un diabète de type 1. Un traitement par insuline lui a été donné",
+    created_at: "Wed, 18 Dec 2019 20:25:38 UTC +00:00",
+    patient_id: first
+  },
+    {
+    weight: 35,
+    height: 148,
+    report: "Aina se sent mieux mais se plaint d'avoir tres soif durant la nuit. Un avis spécialiste est nécessaire pour l'adaptation du traitement.",
+    created_at: "Tue, 28 Jan 2020 20:25:38 UTC +00:00",
+    patient_id: first
+  }
+]
+
+consultations.each do |consultation|
+  consult = Consultation.new(consultation)
+  consult.save!
+end
+
+
+
+puts "Deleting existing #{Prescription.count} prescriptions ..."
+Prescription.destroy_all
+
+puts "Creating new prescriptions ..."
+
+
+last = Consultation.all.pluck(:id).last
+prescriptions = [
+  {
+    medicine_name: "Mix",
+    dose_morning: 6,
+    dose_noon: 4,
+    dose_night: 8,
+    created_at: "Tue, 28 Jan 2020 20:25:38 UTC +00:00",
+    consultation_id: last,
+    user_id: 3
+  },
+    {
+    medicine_name: "Mix",
+    dose_morning: 10,
+    dose_noon: 0,
+    dose_night: 12,
+    created_at: "Wed, 18 Dec 2019 20:25:38 UTC +00:00",
+    consultation_id: last - 1,
+    user_id: 3
+  },
+
+]
+
+prescriptions.each do |prescription|
+  prescrip = Prescription.new(prescription)
+  prescrip.save!
+end
+
+
+
+
 
 
 
