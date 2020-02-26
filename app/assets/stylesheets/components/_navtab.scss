@@ -18,12 +18,9 @@
     transition: transform 120ms ease-in-out;
     outline: none !important;
   }
-  &:active, &:focus{
-    box-shadow: 2px 4px 4px rgba(104, 131, 246, 0.5);
-    transform: translate(-1px, -1px);
-    text-decoration-line: underline;    
-    color: $italianskyblue;
-    outline: none !important;
+  
+  >a{ 
+    color: $text-grey !important;
   }
 }
 
@@ -37,10 +34,15 @@
   line-height: 160%;
   text-align: center;
   color: $text-grey;
+  
   outline: none !important;
   box-shadow: 2px 4px 4px rgba(104, 131, 246, 0.5);
+
   transform: translate(-1px, -1px);
-  text-decoration-line: underline;    
-  color: $italianskyblue;
+  text-decoration-line: underline;
   outline: none !important;
+  
+  >a{ 
+    color: $italianskyblue !important;
+  }
 }

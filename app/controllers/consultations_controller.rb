@@ -20,6 +20,11 @@ class ConsultationsController < ApplicationController
     authorize @consultation
     @consultation.patient = @patient
     @consultation.save
+    
+    @user_consultation = UserConsultation.new
+    @user_consultation.user_id = current_user.id
+    @user_consultation.consultation_id = @consultation.id
+    @user_consultation.save
     redirect_to patient_consultations_path(@patient)
   end
 

@@ -1,4 +1,8 @@
 // *** SCROLLSPY LIST-ITEMS *** 
+#list-example{
+  width: 90%;
+}
+
 .list-group-item{
   background-color: #ffffff;
   color: $eerieblack;
@@ -16,19 +20,21 @@
 }
 
 .list-group-item:first-child{
-  border-top-left-radius: 10px !important;
-  border-top-right-radius: 10px !important;
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
 }
 
 .list-group-item:nth-last-child(1){
-  border-bottom-left-radius: 10px !important;
-  border-bottom-right-radius: 10px !important;
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
 }
 
 
   // *** CARDS WRAPPER ***
 div.scrollspy-example{
   // background: $mustard;
-  height: 500px;
+  height: 790px;
   overflow-y: scroll;
 }
+
+// *** CREATE CONSULTATION STICKY BUTTON ***

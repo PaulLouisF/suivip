@@ -215,5 +215,5 @@ fr-FR:
     formats:
       default: "%d %B %Y %Hh %Mmin %Ss"
       long: "%A %d %B %Y à %Hh%M"
-      short: "%A, %-d %b %Y"
+      short: "%a, %-d %b %Y"
     pm: pm

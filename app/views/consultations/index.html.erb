@@ -1,13 +1,14 @@
-<!-- <div class="d-flex justify-content-end">
-  <%= link_to new_patient_consultation_path do %>
-    <button id="nav-new" class="btn-primary btn-new">Créer une consultation</button>
-  <% end %>
+<div class="mt-2">
+  <h2>La dernière consultation a eu lieu il y'a plus de <%= ((Time.now - @consultations.last.created_at)/60).to_i %> minutes</h2>
+</div>
 
-</div> -->
+<%= link_to new_patient_consultation_path do %>
+  <button id="nav-new" class="btn-primary btn-new">Nouvelle<br>consultation</button>
+<% end %>
 
-<div class="row no-gutters">
+<div class="row no-gutters pt-3">
   <div class="col-3 d-flex flex-column">
-    <div id="list-example" class="list-group align-self-center w-100">
+    <div id="list-example" class="list-group align-self-center">
       <% @consultations.reverse_each.with_index do |consultation, index| %>
         <a class="list-group-item list-group-item-action" href="#list-item-<%= index %>">
           <%#= consultation.created_at.strftime('%d-%m-%Y') %>
@@ -20,48 +21,47 @@
   <div class="col-9">
     <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
       <% @consultations.reverse_each.with_index do |consultation, index| %>
-          <h3 class="consultation-card-header" id="list-item-<%= index %>" style="visibility: hidden;">Consultation du <%= I18n.l(consultation.created_at, format: :long, locale: :'fr-FR') %></h3>
-          <div class="consultation-card">
-            <ul>
-              <li><%= "Taille : #{consultation.height}" %></li>
-              <li><%= "Poids : #{consultation.weight}"%></li>
-              <li><%= "Compte rendu : #{consultation.report}" %></li>
-            </ul>
-
-      <!-- Button trigger modal -->
-            <button type="button" class="btn-primary btn-new" data-toggle="modal" data-target="#exampleModalCenter">
-              Créer un ticket
-            </button>
-
-            <%= render '/tickets/new', ticket: @ticket, patient: @patient %>
-            <%#= render 'shared/newticket_form' %>
-
-            <% if consultation.tickets.empty? %> 
-              <p>
-                <i class="fas fa-quote-left"></i>PAS DE TICKETS<i class="fas fa-quote-right"></i>
-              </p>
+        <h3 class="consultation-card-header" id="list-item-<%= index %>"></h3>
+        <div class="consultation-card">
+          
+          <div class="d-flex justify-content-between py-2">
+            <% if consultation.user_consultations.empty? %>
+              <h4>consultations#create màj</h4>
             <% else %>
-              <div>
-                <div><i class="flex-row fas fa-user-circle"></i>
-                <div class="subheader">
-                  <%= current_user.first_name %> 
-                </div>
-                <div class="ticket-question">
-                  <div>
-                    <i class="fas fa-quote-left"></i> <%= consultation.tickets.last.question %> <i class="fas fa-quote-right"></i>
-                  </div>
-                </div>
-                </div>
-              </div>
-              <div class="pull-right">
-                  <strong class="td">DOCTOR</strong> <small class="pull-right text-muted">
-                <p>
-                  <i class="fas fa-quote-left"></i>PAS DE TICKETS<i class="fas fa-quote-right"></i>
-                </p>
-              </div>
+              <%# <i class="fas fa-user-nurse" style="font-size: 18px; color: #000000;"></i> %>
+              <h4>Par Dr. <%= consultation.user_consultations.first.user.first_name %> <%= consultation.user_consultations.first.user.last_name %></h4>
             <% end %>
+            
+            <h4><%= I18n.l(consultation.created_at, format: :short, locale: :'fr-FR') %></h4>
+
+          </div>
+          <section class="mt-2">
+          <div class="subheader">Poids & Mesures</div>
+          <ul class="d-flex justify-content-around px-2 py-2 mb-0">
+            <li class="col-3"><i class="mr-2 fas fa-ruler"></i><%= "#{consultation.height} cm" %></li>
+            <li class="col-3"><i class="mr-2 fas fa-weight"></i><%= "#{consultation.weight} kg"%></li>
+            <li class="col-3"><i class="mr-2 fas fa-heart"></i><%= "#{consultation.systolic_blood_pressure} / 
+                                                                    #{consultation.diastolic_blood_pressure} mmHg"%></li>
+          </ul>
+          </section>
+
+          <section class="mt-2">
+            <div class="subheader">compte rendu</div>
+            <p><%= consultation.report %></p>
+          </section>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn-primary btn-new" data-toggle="modal" data-target="#exampleModalCenter">Demander l'avis d'un spécialiste</button>
+
+          <%= render '/tickets/new', ticket: @ticket, patient: @patient %>
+
+          <% if consultation.tickets.empty? %> 
+            <p>Aucun avis de spécialiste n'a été sollicité pour cette consultation</p>
+          <% else %>
+          <% end %>
+        </div>
       <% end %>
+        </div>
     </div>
   </div>
-
 </div>
