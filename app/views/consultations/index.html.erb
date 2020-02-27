@@ -8,8 +8,8 @@
   <% end %>
   <%= link_to new_patient_consultation_path do %>
     <i id="add-consultation" class="fas fa-plus-circle" style="font-size: 42px; color: #FFCA56;"></i>
-  <% end %> 
-<!--  
+  <% end %>
+<!--
   <%= link_to new_patient_consultation_path do %>
     <button class="btn-primary btn-new">Nouvelle Consultation</button>
   <% end %>
@@ -34,8 +34,8 @@
       <% @consultations.reverse_each.with_index do |consultation, index| %>
         <h3 class="consultation-card-header" id="list-item-<%= index %>"></h3>
         <div class="consultation-card d-flex flex-column justify-content-center">
-          
-          <div class="d-flex justify-content-between py-0">     
+
+          <div class="d-flex justify-content-between py-0">
             <% if consultation.user_consultations.empty? %>
             <% else %>
               <p class="font-weight-bold">Consultation par Dr. <%= consultation.user_consultations.first.user.first_name %> <%= consultation.user_consultations.first.user.last_name %></p>
@@ -48,7 +48,7 @@
           <ul class="d-flex justify-content-around px-2 py-2 mb-0">
             <li class="col-3"><i class="mr-2 fas fa-ruler"></i><%= "#{consultation.height} cm" %></li>
             <li class="col-3"><i class="mr-2 fas fa-weight"></i><%= "#{consultation.weight} kg"%></li>
-            <li class="col-3"><i class="mr-2 fas fa-heart"></i><%= "#{consultation.systolic_blood_pressure} / 
+            <li class="col-3"><i class="mr-2 fas fa-heart"></i><%= "#{consultation.systolic_blood_pressure} /
                                                                     #{consultation.diastolic_blood_pressure}"%></li>
           </ul>
           </section>
@@ -83,12 +83,14 @@
                 <div class="ticket-question">
                   <div>
                     <i class="fas fa-quote-left"></i>
-                    <%= consultation.tickets.last.question %> 
+                    <%= consultation.tickets.last.question %>
                     <i class="fas fa-quote-right"></i>
                   </div>
                 </div>
               </div>
-
+              <div class="d-flex justify-content-between">
+                <button id="callSpecialist" class="btn btn-info">Appeler un spécialiste</button>
+              </div>
               <div id="question">
                 <div class="d-flex flex-inline mt-1">
                   <i class="fas fa-user-md" style="font-size: 18px; color: black;"></i>
@@ -98,7 +100,7 @@
                 <div class="ticket-question">
                   <div>
                     <i class="fas fa-quote-left"></i>
-                    <%= consultation.tickets.last.answer %> 
+                    <%= consultation.tickets.last.answer %>
                     <i class="fas fa-quote-right"></i>
                   </div>
                 </div>
@@ -113,3 +115,12 @@
     </div>
   </div>
 </div>
+
+<script>
+  var call = document.getElementById('callSpecialist');
+
+  call.addEventListener("click", (event) => {
+      console.log("hello");
+      window.open("https://us04web.zoom.us/j/664727181")
+    });
+</script>
