@@ -8,6 +8,7 @@ class ConsultationsController < ApplicationController
   def index
     @consultations = @patient.consultations
     @ticket = Ticket.new
+    time_since_last_consultation
   end
   
   def new
@@ -20,6 +21,11 @@ class ConsultationsController < ApplicationController
     authorize @consultation
     @consultation.patient = @patient
     @consultation.save
+    
+    @user_consultation = UserConsultation.new
+    @user_consultation.user_id = current_user.id
+    @user_consultation.consultation_id = @consultation.id
+    @user_consultation.save
     redirect_to patient_consultations_path(@patient)
   end
 
@@ -40,6 +46,17 @@ class ConsultationsController < ApplicationController
   def set_consultation
     @consultation = Consultation.find(params[:id])
     @patient = Patient.find(@consultation.patient_id)
+  end
+
+  def time_since_last_consultation
+    if @consultations.empty?
+      @time_since_last = ""
+    else
+      delta = (Time.now - @consultations.last.created_at)
+      @time_since_last = delta.divmod(60*60*24).first
+    end
+
+    return @time_since_last
   end
 
 end

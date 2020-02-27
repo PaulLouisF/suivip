@@ -199,16 +199,13 @@ profiles_patients = [
 
 
 profiles_patients.each do |profile|
-  profile[:birthdate] = Faker::Date.birthday(min_age: 18, max_age: 25)
+  profile[:birthdate] = Faker::Date.birthday(min_age: 10, max_age: 25)
   profile[:gender] = Faker::Gender.binary_type
   patient = Patient.new(profile)
   patient.save!
 end
 
 puts "Profiles #{Patient.count} patients seed is ok"
-
-
-
 
 puts "Deleting existing #{GlucoseLevel.count} glucose_levels ..."
 GlucoseLevel.destroy_all

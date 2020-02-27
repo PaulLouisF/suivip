@@ -28,30 +28,55 @@
 }
 
 .consultation-card{
-  height: 375px;
   padding: 8px 8px;
-  margin: -28px 16px 16px 16px;
+  margin: 0px 16px 16px 16px;
   border-radius: 5px;
   border: 1px solid #EDF2F4; 
   background: $white;
   border-radius: 5px;
-  border: 1px solid #EDF2F4;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+
+  ul > li{
+    list-style: none;
+    margin: 0px 6px 0px 6px;
+    padding: 6px 0px 6px 0px;
+    background-color: $bluelagoon;
+    border-radius: 20px;
+
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+
+    > i{
+      color: #ffffff;
+      font-size: 24px;
+    }
+
+  }
+}
+
+.sub-card{
+  max-width: 98%;
+  background: $white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 4px 12px;
 }
 
 .ticket-question{
-  width: 290px;
-  height: 150px;
-  padding: 8px 8px;
-  margin: 0px 16px;
+  width: 85%;
+  padding: 4px 4px;
+  margin: 0px 0px 8px 16px;
   border-radius: 5px;
   border: 1px solid #EDF2F4; 
   background: $deepkoamaru;
   border-radius: 5px;
   border: 1px solid #EDF2F4;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 
   > div{
     color: #FFFFFF;
+    text-align: center;
   }
 }
