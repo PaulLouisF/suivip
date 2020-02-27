@@ -199,7 +199,7 @@ profiles_patients = [
 
 
 profiles_patients.each do |profile|
-  profile[:birthdate] = Faker::Date.birthday(min_age: 10, max_age: 25)
+  profile[:birthdate] = Faker::Date.birthday(min_age: 6, max_age: 25)
   profile[:gender] = Faker::Gender.binary_type
   patient = Patient.new(profile)
   patient.save!
@@ -347,39 +347,39 @@ end
 
 
 
-puts "Deleting existing #{Prescription.count} prescriptions ..."
-Prescription.destroy_all
+# puts "Deleting existing #{Prescription.count} prescriptions ..."
+# Prescription.destroy_all
 
-puts "Creating new prescriptions ..."
+# puts "Creating new prescriptions ..."
 
 
-last = Consultation.all.pluck(:id).last
-prescriptions = [
-  {
-    medicine_name: "Mix",
-    dose_morning: 6,
-    dose_noon: 4,
-    dose_night: 8,
-    created_at: "Tue, 28 Jan 2020 20:25:38 UTC +00:00",
-    consultation_id: last,
-    user_id: 3
-  },
-    {
-    medicine_name: "Mix",
-    dose_morning: 10,
-    dose_noon: 0,
-    dose_night: 12,
-    created_at: "Wed, 18 Dec 2019 20:25:38 UTC +00:00",
-    consultation_id: last - 1,
-    user_id: 3
-  },
+# last = Consultation.all.pluck(:id).last
+# prescriptions = [
+#   {
+#     medicine_name: "Mix",
+#     dose_morning: 6,
+#     dose_noon: 4,
+#     dose_night: 8,
+#     created_at: "Tue, 28 Jan 2020 20:25:38 UTC +00:00",
+#     consultation_id: last,
+#     user_id: User.find_name(first_name: "Fialy")
+#   },
+#     {
+#     medicine_name: "Mix",
+#     dose_morning: 10,
+#     dose_noon: 0,
+#     dose_night: 12,
+#     created_at: "Wed, 18 Dec 2019 20:25:38 UTC +00:00",
+#     consultation_id: last - 1,
+#     user_id: User.find_name(first_name: "Fialy")
+#   },
 
-]
+# ]
 
-prescriptions.each do |prescription|
-  prescrip = Prescription.new(prescription)
-  prescrip.save!
-end
+# prescriptions.each do |prescription|
+#   prescrip = Prescription.new(prescription)
+#   prescrip.save!
+# end
 
 
 
