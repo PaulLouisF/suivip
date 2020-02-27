@@ -1,13 +1,25 @@
-<!-- <div class="d-flex justify-content-end">
-  <%= link_to new_patient_consultation_path do %>
-    <button id="nav-new" class="btn-primary btn-new">Créer une consultation</button>
+<div class="d-flex justify-content-around align-items-center mt-3 px-2 py-2" style="background-color: white; border-radius: 10px; border: 2px solid #FFCA56">
+  <% if @consultations.empty? %>
+    <h3 class="flex-grow-1">Aucune consultation n'existe pour ce patient</h3>
+  <% elsif @time_since_last <= 1 %>
+    <h3 class="flex-grow-1">La dernière consultation a eu lieu il y'a moins de 24h</h3>
+  <% else %>
+    <h3 class="flex-grow-1">La dernière consultation a eu lieu il y'a <%= @time_since_last %> jours</h3>
   <% end %>
+  <%= link_to new_patient_consultation_path do %>
+    <i id="add-consultation" class="fas fa-plus-circle" style="font-size: 42px; color: #FFCA56;"></i>
+  <% end %> 
+<!--  
+  <%= link_to new_patient_consultation_path do %>
+    <button class="btn-primary btn-new">Nouvelle Consultation</button>
+  <% end %>
+-->
+</div>
 
-</div> -->
 
-<div class="row no-gutters">
+<div class="row no-gutters pt-3">
   <div class="col-3 d-flex flex-column">
-    <div id="list-example" class="list-group align-self-center w-100">
+    <div id="list-example" class="list-group align-self-center">
       <% @consultations.reverse_each.with_index do |consultation, index| %>
         <a class="list-group-item list-group-item-action" href="#list-item-<%= index %>">
           <%#= consultation.created_at.strftime('%d-%m-%Y') %>
@@ -20,48 +32,84 @@
   <div class="col-9">
     <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
       <% @consultations.reverse_each.with_index do |consultation, index| %>
-          <h3 class="consultation-card-header" id="list-item-<%= index %>" style="visibility: hidden;">Consultation du <%= I18n.l(consultation.created_at, format: :long, locale: :'fr-FR') %></h3>
-          <div class="consultation-card">
-            <ul>
-              <li><%= "Taille : #{consultation.height}" %></li>
-              <li><%= "Poids : #{consultation.weight}"%></li>
-              <li><%= "Compte rendu : #{consultation.report}" %></li>
-            </ul>
-
-      <!-- Button trigger modal -->
-            <button type="button" class="btn-primary btn-new" data-toggle="modal" data-target="#exampleModalCenter">
-              Créer un ticket
-            </button>
-
-            <%= render '/tickets/new', ticket: @ticket, patient: @patient %>
-            <%#= render 'shared/newticket_form' %>
-
-            <% if consultation.tickets.empty? %> 
-              <p>
-                <i class="fas fa-quote-left"></i>PAS DE TICKETS<i class="fas fa-quote-right"></i>
-              </p>
+        <h3 class="consultation-card-header" id="list-item-<%= index %>"></h3>
+        <div class="consultation-card d-flex flex-column justify-content-center">
+          
+          <div class="d-flex justify-content-between py-0">     
+            <% if consultation.user_consultations.empty? %>
             <% else %>
-              <div>
-                <div><i class="flex-row fas fa-user-circle"></i>
-                <div class="subheader">
-                  <%= current_user.first_name %> 
+              <p class="font-weight-bold">Consultation par Dr. <%= consultation.user_consultations.first.user.first_name %> <%= consultation.user_consultations.first.user.last_name %></p>
+            <% end %>
+            <p class="font-weight-bold"><%= I18n.l(consultation.created_at, format: :long, locale: :'fr-FR') %></p>
+          </div>
+
+          <section class="sub-card mt-2 px-2 pt-2">
+          <div class="subheader">Poids & Mesures</div>
+          <ul class="d-flex justify-content-around px-2 py-2 mb-0">
+            <li class="col-3"><i class="mr-2 fas fa-ruler"></i><%= "#{consultation.height} cm" %></li>
+            <li class="col-3"><i class="mr-2 fas fa-weight"></i><%= "#{consultation.weight} kg"%></li>
+            <li class="col-3"><i class="mr-2 fas fa-heart"></i><%= "#{consultation.systolic_blood_pressure} / 
+                                                                    #{consultation.diastolic_blood_pressure}"%></li>
+          </ul>
+          </section>
+
+          <section class="sub-card mt-2 px-2 pt-2 pb-2">
+            <div class="subheader">compte rendu</div>
+            <p><%= consultation.report %></p>
+          </section>
+
+          <!-- Button trigger modal -->
+          <%= render '/tickets/new', ticket: @ticket, patient: @patient %>
+
+          <section class="sub-card mt-2 px-2 py-3 flex-grow-1">
+            <% if consultation.tickets.empty? %>
+              <div class="d-flex flex-column align-items-center">
+                <div class="empty-tickets-wrapper d-flex flex-column justify-content-end">
+                  <p class="mb-1 font-weight-bold">Aucun spécialiste n'a été sollicité pour cette consultation</p>
+                  <button type="button" class="btn-primary btn-new mb-2" data-toggle="modal" data-target="#exampleModalCenter">
+                    Demander l'avis d'un spécialiste
+                  </button>
                 </div>
+              <div>
+
+            <% else %>
+              <div class="subheader">avis d'un spécialiste</div>
+              <div id="question">
+                <div class="d-flex flex-inline mt-1">
+                  <i class="fas fa-user-md" style="font-size: 18px; color: black;"></i>
+                  <div class="ml-1"><%= current_user.first_name %></div>
+                </div>
+
                 <div class="ticket-question">
                   <div>
-                    <i class="fas fa-quote-left"></i> <%= consultation.tickets.last.question %> <i class="fas fa-quote-right"></i>
+                    <i class="fas fa-quote-left"></i>
+                    <%= consultation.tickets.last.question %> 
+                    <i class="fas fa-quote-right"></i>
                   </div>
                 </div>
+              </div>
+
+              <div id="question">
+                <div class="d-flex flex-inline mt-1">
+                  <i class="fas fa-user-md" style="font-size: 18px; color: black;"></i>
+                  <div class="ml-1"><%= current_user.first_name %></div>
+                </div>
+
+                <div class="ticket-question">
+                  <div>
+                    <i class="fas fa-quote-left"></i>
+                    <%= consultation.tickets.last.answer %> 
+                    <i class="fas fa-quote-right"></i>
+                  </div>
                 </div>
               </div>
-              <div class="pull-right">
-                  <strong class="td">DOCTOR</strong> <small class="pull-right text-muted">
-                <p>
-                  <i class="fas fa-quote-left"></i>PAS DE TICKETS<i class="fas fa-quote-right"></i>
-                </p>
-              </div>
+
             <% end %>
+          </section>
+
+        </div>
       <% end %>
     </div>
+    </div>
   </div>
-
 </div>

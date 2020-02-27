@@ -207,9 +207,6 @@ end
 
 puts "Profiles #{Patient.count} patients seed is ok"
 
-
-
-
 puts "Deleting existing #{GlucoseLevel.count} glucose_levels ..."
 GlucoseLevel.destroy_all
 

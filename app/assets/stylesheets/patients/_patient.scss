@@ -24,8 +24,13 @@
 
 #patient-file-header{
   border-radius: 40px 10px 0px 0px;
-  // background: $bluelagoon;
   height: 15vh;
+}
+
+.fas{
+  // margin-right: ;
+  font-size: 32px;
+  color: $eerieblack;
 }
 
 hr{
@@ -34,7 +39,9 @@ hr{
 }
 
 #patient-tab-content{
-  min-height: 600px;
-  max-width: 96%;
+  min-height: 800px;
+  max-width: 94%;
   overflow: scroll;
+  background-color: #F8F8FF;
+  border: 1px solid #F4F4FC;
 }

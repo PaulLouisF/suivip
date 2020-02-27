@@ -18,23 +18,25 @@
       </div>
 
       <div class="col-11" id="">
-        <div class="mt-5" id="patient-file">
+        <div class="mt-4" id="patient-file">
           <div id="patient-file-header" class="d-flex flex-row align-items-center">
             <!-- IMAGE TAG FOR AVATAR HERE -->
             <%= image_tag "test.jpg", class: "avatar-bordered ml-3" %>
             <!-- REMOVED AGE FROM HEADER, AGE METHOD NOT AVAILABLE IN OTHER CONTROLLERS YET -->
             <h1 class="flex-grow-1 ml-3"><%= @patient.first_name %> <%= @patient.last_name %>, <%= @patient.age %> ans</h1>
-            <button class="btn-secondary mr-5">infos</button>
+            <%= link_to mypatients_path do %>
+              <i class="fas fa-info-circle mr-4"></i>
+            <% end %>
           </div>
           <hr class="w-75 mt-0">
-          <div class="d-flex flex-row justify-content-around">
-            <%#= active_class(some_path) %>
-            <%= link_to "Consultations", patient_consultations_path(@patient), class: "btn nav-tab" %>
-            <%= link_to "Données de Glycémie", patient_glucose_levels_path(@patient), class: "btn nav-tab" %>
-            <%= link_to "Ordonnances", patient_prescriptions_path(@patient),class: "btn nav-tab" %>
-          </div>
+          <nav class="d-flex flex-row justify-content-center">
+            <%#= link_to "Consultations", patient_consultations_path(@patient), class: "btn nav-tab" %>
+            <%= link_to_in_a "Consultations", patient_consultations_path(@patient) %>
+            <%= link_to_in_a "Données de Glycémie", patient_glucose_levels_path(@patient) %>
+            <%= link_to_in_a "Ordonnances", patient_prescriptions_path(@patient) %>
+          </nav>
           <!-- TODO : remove background color when sizing done -->
-          <div class="container mt-4 py-2" id="patient-tab-content">
+          <div class="container mt-3 py-0" id="patient-tab-content">
             <%= yield %>
           </div>
       </div>
@@ -44,9 +46,6 @@
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= render 'shared/flashes' %>
-    <script>
-      // $('div').scrollspy({ target: '#list-example' })
-    </script>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
