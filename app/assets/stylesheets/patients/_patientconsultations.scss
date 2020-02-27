@@ -1,3 +1,22 @@
+// *** ADD CONSULTATION ***
+#add-consultation{
+  // animation: spin 400ms ease-in-out;
+  // animation-delay: 3s;
+  // animation-iteration-count: 1;
+  &:hover{
+    animation: spin 500ms ease-in-out;
+  }
+}
+
+@keyframes spin
+{
+  100%
+  {
+    -webkit-transform: rotate(180deg);
+    // transform: rotate(180deg);   
+  }
+}
+
 // *** SCROLLSPY LIST-ITEMS *** 
 #list-example{
   width: 90%;
