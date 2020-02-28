@@ -61,13 +61,13 @@
   background: $white;
   border-radius: 5px;
   margin: 4px 8px;
-  // box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  &:hover{
-    transform: translate(-1px, -1px);
-    transition: transform 100ms ease-in;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  }
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  // &:hover{
+  //   transform: translate(-1px, -1px);
+  //   transition: transform 100ms ease-in;
+  //   border-radius: 5px;
+  //   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  // }
 }
 
 .sub-card{
@@ -82,19 +82,29 @@
   }
 }
 
-.ticket-question{
+.ticket-qa{
   width: 85%;
   padding: 4px 4px;
   margin: 0px 0px 8px 16px;
   border-radius: 5px;
   border: 1px solid #EDF2F4; 
   background: $deepkoamaru;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid #EDF2F4;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 
   > div{
     color: #FFFFFF;
-    text-align: center;
+    text-align: left !important;
   }
 }
+
+.ticket-qa.right{
+  margin-left: 100px;
+  background: $turquoise;
+}
+
+.fas.fa-quote-left, .fas.fa-quote-right{
+  font-size: 18px;
+  color: $white;
+ }
