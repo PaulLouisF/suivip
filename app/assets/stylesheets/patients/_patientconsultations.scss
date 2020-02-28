@@ -1,10 +1,15 @@
 // *** ADD CONSULTATION ***
 #add-consultation{
-  // animation: spin 400ms ease-in-out;
-  // animation-delay: 3s;
-  // animation-iteration-count: 1;
+  animation: spin 600ms ease-in-out;
+  animation-delay: 3s;
+  animation-iteration-count: 1;
+
   &:hover{
-    animation: spin 500ms ease-in-out;
+    transform: translate(-1px, -1px);
+    transition: transform 100ms ease-in;
+    -webkit-transition: transform 100ms ease-in;
+    -moz-transition: transform 100ms ease-in;
+    -o-transition: transform 100ms ease-in;
   }
 }
 
@@ -17,9 +22,16 @@
   }
 }
 
+
+
 // *** SCROLLSPY LIST-ITEMS *** 
+
 #list-example{
   width: 90%;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  // margin-top: 8px;
+  margin-left: 8px;
 }
 
 .list-group-item{
@@ -51,9 +63,10 @@
 
   // *** CARDS WRAPPER ***
 div.scrollspy-example{
-  // background: $mustard;
-  height: 500px;
+  height: 600px;
   overflow-y: scroll;
+  margin-bottom: 8px;
+  // &:first-child{
+  //   padding-top: 8px;
+  // }
 }
-
-// *** CREATE CONSULTATION STICKY BUTTON ***

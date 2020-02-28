@@ -32,6 +32,13 @@ h3 {
   color: $text-grey;
 }
 
+mark {
+  background-color: $mustard;
+  color: $bluelagoon;
+  padding: 2px 8px; 
+  margin: 0px 0px;
+}
+
 p {
   font-family: Open Sans;
   font-style: normal;

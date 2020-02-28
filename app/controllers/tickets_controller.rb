@@ -23,7 +23,6 @@ class TicketsController < ApplicationController
     @ticket.save
 
     redirect_to patient_consultations_path(@patient)
-
   end
 
   

@@ -56,12 +56,30 @@
   }
 }
 
-.sub-card{
+.sub-card-1{
   max-width: 98%;
   background: $white;
   border-radius: 5px;
+  margin: 4px 8px;
+  // box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  &:hover{
+    transform: translate(-1px, -1px);
+    transition: transform 100ms ease-in;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.sub-card{
+  max-width: 98%;
+  background: $white;
+  margin: 4px 8px;
+  &:hover{
+  transform: translate(-1px, -1px);
+  transition: transform 100ms ease-in;
+  border-radius: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  margin: 4px 12px;
+  }
 }
 
 .ticket-question{
