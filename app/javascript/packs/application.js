@@ -154,7 +154,7 @@ if (cty) {
         data: {
           datasets: [{
             data: cleanPieSet(),
-            backgroundColor: ["#0074D9", "#FF4136", "#2ECC40"]
+            backgroundColor: ["#0074D9", "#2ECC40", "#FF4136"]
           }],
     // These labels appear in the legend and in the tooltips when hovering different arcs
 
