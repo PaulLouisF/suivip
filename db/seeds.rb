@@ -95,105 +95,120 @@ profiles_patients = [
     last_name: "Fanantenana",
     address: "8 Route d'Amborovy Manoa",
     city: "Mahajanga",
-    phone_number:"+261 40 22 515 02"
+    phone_number:"+261 40 22 515 02",
+    gender: "F"
   },
   {
     first_name:"Beloha",
     last_name: "Nandrasana",
     address:"10 rue Pasteur Groult",
     city: "Fianarantsoa",
-    phone_number: "261 40 15 715 12"
+    phone_number: "261 40 15 715 12",
+    gender: "H"
   },
   {
     first_name:"Dany",
     last_name: "Rabesandratana",
     address: "7 rue Rakotozafy Alphonse",
     city: "Fianarantsoa",
-    phone_number: "261 20 38 525 01"
+    phone_number: "261 20 38 525 01",
+    gender: "H"
   },
   {
     first_name: "Eva",
     last_name: "Rajolomanana",
     address:"12 RN8a",
     city: "Maintirano",
-    phone_number: "261 22 18 125 01"
+    phone_number: "261 22 18 125 01",
+    gender: "F"
   },
   {
-    first_name: "Fiary",
+    first_name: "Sara",
     last_name:"Tsaroanana",
     address: "12 R J Bezara",
     city: "Antsiranana",
-    phone_number: "261 20 35 544 18"
+    phone_number: "261 20 35 544 18",
+    gender: "F"
   },
   {
     first_name: "Hejo",
     last_name: "Voahirana",
     address:"Cité Seimad Marofinaritra",
     city: "Mananjary",
-    phone_number: "+261 25 92 154 00"
+    phone_number: "+261 25 92 154 00",
+    gender: "H"
   },
   {
     first_name: "Jery",
     last_name: "Naivomalana",
     address: "12 rue de l'école Ménagère",
     city: "Tuléar",
-    phone_number: "+261 30 42 340 84"
+    phone_number: "+261 30 42 340 84",
+    gender: "H"
   },
   {
-    first_name: "Johary",
+    first_name: "Hanitra",
     last_name: "Serasandratra",
     address: "12 Kimuni Rd",
     city: "Morondava",
-    phone_number: "+261 51 21 140 12"
+    phone_number: "+261 51 21 140 12",
+    gender: "F"
   },
   {
-    first_name: "Kanto",
+    first_name: "Claude",
     last_name: "Rakotamanana",
     address: "14 avenue du 14 Octobre",
     city: "Majunga",
-    phone_number: "+261 10 12 510 88"
+    phone_number: "+261 10 12 510 88",
+    gender: "H"
   },
   {
     first_name: "Maeva",
     last_name: "Tsimahy",
     address: "12 rue Berthelot",
     city: "Majunga",
-    phone_number: "+261 10 22 510 01"
+    phone_number: "+261 10 22 510 01",
+    gender: "F"
   },
   {
-    first_name: "Mizo",
+    first_name: "Haja",
     last_name:"Valisoa",
     address: "Tanambao Ombimena BP 30",
     city: "Manakara",
-    phone_number: "+261 01 22 588 02"
+    phone_number: "+261 01 22 588 02",
+    gender: "H"
   },
   {
-    first_name: "Nary",
+    first_name: "Vololona",
     last_name: "Marinomalana",
     address: "12 rue de la Reine Betty",
     city:"Antsiranana",
-    phone_number: "+261 10 00 548 02"
+    phone_number: "+261 10 00 548 02",
+    gender: "F"
   },
   {
-    first_name: "Oly",
+    first_name: "Bodo",
     last_name: "Naivonofy",
     address: "15 route de la Pyrotechnie",
     city: "Antsiranana",
-    phone_number: "+261 62 82 546 02"
+    phone_number: "+261 62 82 546 02",
+    gender: "F"
   },
   {
     first_name:"Patsy",
     last_name: "Landerana",
     address:"15 rue Edward Nestor",
     city: "Tuléar",
-    phone_number: "+261 20 22 540 02"
+    phone_number: "+261 20 22 540 02",
+    gender: "F"
   },
   {
     first_name:"Rina",
     last_name: "Livasoa",
     address: " 12 Rue Michel Mahazo",
     city: "Toamasina",
-    phone_number: "+261 642856319"
+    phone_number: "+261 642856319",
+    gender: "H"
   }
 ]
 
@@ -347,68 +362,38 @@ end
 
 
 
-# puts "Deleting existing #{Prescription.count} prescriptions ..."
-# Prescription.destroy_all
+puts "Deleting existing #{Prescription.count} prescriptions ..."
+Prescription.destroy_all
 
-# puts "Creating new prescriptions ..."
-
-
-# last = Consultation.all.pluck(:id).last
-# prescriptions = [
-#   {
-#     medicine_name: "Mix",
-#     dose_morning: 6,
-#     dose_noon: 4,
-#     dose_night: 8,
-#     created_at: "Tue, 28 Jan 2020 20:25:38 UTC +00:00",
-#     consultation_id: last,
-#     user_id: User.find_name(first_name: "Fialy")
-#   },
-#     {
-#     medicine_name: "Mix",
-#     dose_morning: 10,
-#     dose_noon: 0,
-#     dose_night: 12,
-#     created_at: "Wed, 18 Dec 2019 20:25:38 UTC +00:00",
-#     consultation_id: last - 1,
-#     user_id: User.find_name(first_name: "Fialy")
-#   },
-
-# ]
-
-# prescriptions.each do |prescription|
-#   prescrip = Prescription.new(prescription)
-#   prescrip.save!
-# end
+puts "Creating new prescriptions ..."
 
 
+last = Consultation.all.pluck(:id).last
+prescriptions = [
+  {
+    medicine_name: "Mix",
+    dose_morning: 6,
+    dose_noon: 4,
+    dose_night: 8,
+    created_at: "Tue, 28 Jan 2020 20:25:38 UTC +00:00",
+    consultation_id: last,
+    user_id: User.find_by(first_name: 'Fialy').id
+  },
+    {
+    medicine_name: "Mix",
+    dose_morning: 10,
+    dose_noon: 0,
+    dose_night: 12,
+    created_at: "Wed, 18 Dec 2019 20:25:38 UTC +00:00",
+    consultation_id: last - 1,
+    user_id: User.find_by(first_name: 'Fialy').id
+  },
+]
 
-
-
-
-
-
-# glucoses_levels = [
-#   {
-#     glucose_level: "200",
-#   },
-
-#   {
-#     glucose_level: "340"
-#   }
-
-#  ]
-
-# glucoses_levels.each do |glucose_level|
-#   glucose_level[:measured_at] = "#{Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :morning)}"
-#   glucose_level = GlucoseLevel.new(glucose_level)
-#   glucose_level.patient = Patient.all.sample(1).first
-#   glucose_level.save!
-# end
-
-# puts "glucose levels seed is ok"
-
-
+prescriptions.each do |prescription|
+  prescrip = Prescription.new(prescription)
+  prescrip.save!
+end
 
 
 
