@@ -1,6 +1,9 @@
-<%= simple_form_for [@patient, @consultation] do |f| %>
-  <%= f.input :height %>
-  <%= f.input :weight%>
-  <%= f.input :report %>
-  <%= f.submit "Ajouter une consultation", class: "btn btn-primary" %>
-<% end %>
+<div class="mt-3">
+  <%= simple_form_for [@patient, @consultation] do |f| %>
+    <%= f.input :height, required: true, label: "Taille (en cm)" %>
+    <%= f.input :weight, required: true, label: "Poids (en kg)" %>
+    <%= f.input :systolic_blood_pressure, label: "Pression artérielle (en mmHg)" %>
+    <%= f.input :report, required: true, label: "Compte rendu" %>
+    <%= f.submit "Créer la consultation", class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -9,10 +9,11 @@
   opacity: 0.9;
 }
 
-.simple_form .form-field {
+.form-control.form-field {
   // field properties
   background: #FFFFFF;
-  border: 1px solid #8D99AE;
+  // border: 1px solid #8D99AE !important;
+  border: 1px solid red !important;
   border-radius: 5px;
   
   // text properties

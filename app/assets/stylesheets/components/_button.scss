@@ -29,6 +29,23 @@
   }
 }
 
+#my-search-btn{
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  background-color: $deepkoamaru;
+  margin-left: -37px;
+  margin-top: -1px;
+  &:active, &:focus{
+    outline: none !important;
+  }
+}
+
+#my-search {
+  border-radius: 20px;
+  width: 400px;
+}
+
 
 .btn-secondary {
   margin: auto 0;
