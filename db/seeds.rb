@@ -8,6 +8,11 @@
 
 require 'faker'
 # puts "Deleting existing #{User.count} users ..."
+Prescription.destroy_all
+Consultation.destroy_all
+GlucoseLevel.destroy_all
+Consultation.destroy_all
+Patient.destroy_all
 User.destroy_all
 
 puts "Creating new users ..."
@@ -87,13 +92,6 @@ profiles_users.each do |profile|
 end
 
 puts "Profiles users seed is ok"
-
-puts "Deleting existing #{Consultation.count} consultations ..."
-Consultation.destroy_all
-
-
-puts "Deleting existing #{Patient.count} patients ..."
-Patient.destroy_all
 
 puts "Creating new patients ..."
 
@@ -245,9 +243,6 @@ end
 
 puts "Profiles #{Patient.count} patients seed is ok"
 
-puts "Deleting existing #{GlucoseLevel.count} glucose_levels ..."
-GlucoseLevel.destroy_all
-
 puts "Creating new glucose_levels ..."
 
 n = Patient.all.size
@@ -353,13 +348,7 @@ glucose_levels.each do |glucose_level|
   gly.save!
 end
 
-
-
-puts "Deleting existing #{Consultation.count} consultations ..."
-Consultation.destroy_all
-
 puts "Creating new consultations ..."
-
 
 consultations = [
   {
@@ -397,13 +386,7 @@ consultations.each do |consultation|
   consult.save!
 end
 
-
-
-puts "Deleting existing #{Prescription.count} prescriptions ..."
-Prescription.destroy_all
-
 puts "Creating new prescriptions ..."
-
 
 last = Consultation.all.pluck(:id).last
 prescriptions = [
