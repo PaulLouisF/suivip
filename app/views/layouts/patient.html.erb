@@ -29,10 +29,10 @@
             <% end %>
           </div>
           <hr class="w-75 mt-0">
-          <nav class="d-flex flex-row justify-content-center">
+          <nav class="d-flex flex-row justify-content-center py-2">
             <%#= link_to "Consultations", patient_consultations_path(@patient), class: "btn nav-tab" %>
             <%= link_to_in_a "Consultations", patient_consultations_path(@patient) %>
-            <%= link_to_in_a "Données de Glycémie", patient_glucose_levels_path(@patient) %>
+            <%= link_to_in_a "Historique de Glycémie", patient_glucose_levels_path(@patient) %>
             <%= link_to_in_a "Ordonnances", patient_prescriptions_path(@patient) %>
           </nav>
           <!-- TODO : remove background color when sizing done -->

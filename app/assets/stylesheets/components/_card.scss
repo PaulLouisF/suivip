@@ -1,12 +1,12 @@
 .patient-card{
   width: 290px;
-  height: 150px;
-  padding: 8px 8px;
-  margin: 0px 16px;
-  border-radius: 5px;
-  border: 1px solid #EDF2F4; 
+  height: 110px;
+  padding: 8px 0px;
+  margin: 0px 4px;
+  border-radius: 60px;
+  border: 1px solid #EDF2F4;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   background: $white;
-  border-radius: 5px;
 
   &:hover, &:active, &:focus{
     border: 1px solid #EDF2F4;
@@ -56,27 +56,55 @@
   }
 }
 
-.sub-card{
+.sub-card-1{
   max-width: 98%;
   background: $white;
   border-radius: 5px;
+  margin: 4px 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  margin: 4px 12px;
+  // &:hover{
+  //   transform: translate(-1px, -1px);
+  //   transition: transform 100ms ease-in;
+  //   border-radius: 5px;
+  //   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  // }
 }
 
-.ticket-question{
+.sub-card{
+  max-width: 98%;
+  background: $white;
+  margin: 4px 8px;
+  &:hover{
+  transform: translate(-1px, -1px);
+  transition: transform 100ms ease-in;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.ticket-qa{
   width: 85%;
   padding: 4px 4px;
   margin: 0px 0px 8px 16px;
   border-radius: 5px;
   border: 1px solid #EDF2F4; 
   background: $deepkoamaru;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid #EDF2F4;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 
   > div{
     color: #FFFFFF;
-    text-align: center;
+    text-align: left !important;
   }
 }
+
+.ticket-qa.right{
+  margin-left: 100px;
+  background: $turquoise;
+}
+
+.fas.fa-quote-left, .fas.fa-quote-right{
+  font-size: 18px;
+  color: $white;
+ }

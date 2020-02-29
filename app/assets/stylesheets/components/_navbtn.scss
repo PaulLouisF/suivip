@@ -32,6 +32,27 @@ a.nav-btn {
   }
 }
 
+a.nav-btn.active{
+  width: 200px;
+  height: 44px;
+  border-radius: 5px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 250%;
+  text-decoration: none;
+
+  color: $deepkoamaru; /* deep koamaru */
+  outline: none !important;
+
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  background: $deepkoamaru;
+
+}
+
 a.nav-btn.focus{
   border: 2px solid #FFFFFF;
   color: #FFFFFF;
