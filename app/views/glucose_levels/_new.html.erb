@@ -1,7 +1,7 @@
 <%= simple_form_for [@patient, @glucose_level] do |f| %>
   <div class="row mt-3">
-    <%= f.input :measured_at %>
-    <%= f.input :glucose_level%>
+    <%= f.input :measured_at, label: "Date" %>
+    <%= f.input :glucose_level, label: "Glycémie" %>
     <%= f.submit "Ajouter une glycemie", class: "btn btn-primary ml-3 mb-3" %>
   </div>
 <% end %>
