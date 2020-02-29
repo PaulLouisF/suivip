@@ -45,7 +45,7 @@
     <div class="">
       <%= simple_form_for :search, url: mypatients_searchresult_path, method: "GET", html: { class: "form-inline mt-1" } do |f| %>
         <%= f.input :searchedword, placeholder: "Nom, prénom, âge...", label: false %>   
-        <%= f.submit " ", class: "btn-primary btn-new", placeholder: ('<i class="fas fa-search"></i>') %>
+        <%= f.submit "rechercher", class: "btn-primary btn-new" %>
       <% end %>
     </div>
 
@@ -58,20 +58,22 @@
           <th class="align-middle text-center" scope="col">Âge</th>
           <th class="align-middle" scope="col">Sexe</th>
           <th class="align-middle" scope="col">Dernière consultation</th>
-          <th class="align-middle" scope="col">Ticket</th>
           <th class="align-middle" scope="col">Suivi depuis</th>
         </tr>
       </thead>
       <tbody>
         <% @patients.each_with_index do |patient, index| %>
           <tr class="" data-href="<%= patient_consultations_path(patient) %>">
-            <td class="avatar-placeholder p-1 text-center"><%= image_tag "https://source.unsplash.com/random/4#{index}x4#{index}", class: "avatar-square"%></th>
+            <% if patient.gender == 'Male' %>
+              <td class="p-1 text-center"><i class="fas fa-male" style="font-size: 24px; color: #303C70;"></i></td>
+            <% else %>
+              <td class="p-1 text-center"><i class="fas fa-female" style="font-size: 24px; color: #6883F6;"></i></td>
+            <% end %>
             <td><%= patient.first_name %></td>
             <td><%= patient.last_name %></td>
             <td class="text-center"><%= patient.age %></td>
             <td><%= patient.gender %></td>
             <td><%= patient.consultations.last.nil? ? "Aucune consultation" : patient.consultations.last.created_at.strftime('%d/%m/%Y') %></td>
-            <td></td>
             <td><%= patient.created_at.strftime('%d/%m/%Y') %></td>
           </tr>
         <% end %>
