@@ -8,6 +8,8 @@
 
 require 'faker'
 # puts "Deleting existing #{User.count} users ..."
+Ticket.destroy_all
+UserConsultation.destroy_all
 Prescription.destroy_all
 Consultation.destroy_all
 GlucoseLevel.destroy_all
