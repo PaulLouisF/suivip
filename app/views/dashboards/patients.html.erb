@@ -56,7 +56,6 @@
           <th class="align-middle" scope="col">Prénom</th>
           <th class="align-middle" scope="col">Nom</th>
           <th class="align-middle text-center" scope="col">Âge</th>
-          <th class="align-middle" scope="col">Sexe</th>
           <th class="align-middle" scope="col">Dernière consultation</th>
           <th class="align-middle" scope="col">Suivi depuis</th>
         </tr>
@@ -72,7 +71,6 @@
             <td><%= patient.first_name %></td>
             <td><%= patient.last_name %></td>
             <td class="text-center"><%= patient.age %></td>
-            <td><%= patient.gender %></td>
             <td><%= patient.consultations.last.nil? ? "Aucune consultation" : patient.consultations.last.created_at.strftime('%d/%m/%Y') %></td>
             <td><%= patient.created_at.strftime('%d/%m/%Y') %></td>
           </tr>

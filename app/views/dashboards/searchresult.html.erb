@@ -3,14 +3,52 @@
     <h1 class="flex-grow-1">Mes patients</h1>
     <%= link_to("Nouveau Patient", mypatients_new_path, class: "btn-primary btn-new", style: "text-decoration: none;", role: "button") %>
   </div>
+  <section class="last-patients pt-2">
+    <h2>Mes derniers patients consultés</h2>
+      <% if @last.empty? %>
+      <div class="d-flex flex-row justify-content-start mt-4">
+        <h3>Vous n'avez consulté aucun patient</h3>
+      </div>
+      <% elsif @last.size <= 2 %>
+        <div class="d-flex flex-row justify-content-start mt-3">
+          <% @last.each do |patient| %>
+            <div class="patient-card d-flex flex-column justify-content-around align-items-center">
+              <h4><%= patient.first_name %> <%= patient.last_name %></h4>
+              <p>Dernière consultation le <%= patient.consultations.last.created_at.strftime('%d/%m/%Y') %></p>
+              <div class="d-flex justify-content-center">
+                <i class="fas fa-quote-left mb-1" style="color: black; font-size: 10px;"></i>
+                <p class="mx-1"><%= patient.consultations.last.report.first(25) %>...</p>
+                <i class="fas fa-quote-right mt-1" style="color: black; font-size: 10px;"></i>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="d-flex flex-row justify-content-between mt-3">
+          <% @last.each do |patient| %>
+            <div class="patient-card d-flex flex-column justify-content-around align-items-center">
+              <h4><%= patient.first_name %> <%= patient.last_name %></h4>
+              <p>Dernière consultation le <%= patient.consultations.last.created_at.strftime('%d/%m/%Y') %></p>
+              <div class="d-flex justify-content-center">
+                <i class="fas fa-quote-left mb-1" style="color: black; font-size: 10px;"></i>
+                <p class="mx-1"><%= patient.consultations.last.report.first(25) %>...</p>
+                <i class="fas fa-quote-right mt-1" style="color: black; font-size: 10px;"></i>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+  </section>
   <section class="patients pt-3">
     <% if @results.empty? %>
     <h2>Aucun résultat n'a été trouvé pour votre recherche</h2>
+    <% elsif @results.size == 1 %>
+      <h2><%= @results.size %> résultat a été trouvé pour votre recherche</h2>
     <% else %>
       <h2><%= @results.size %> résultats ont été trouvés pour votre recherche</h2>
     <% end %>
 
-    <%= simple_form_for :search, url: mypatients_searchresult_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+    <%= simple_form_for :search, url: mypatients_searchresult_path, method: "GET", html: { class: 'form-inline mt-1' } do |f| %>
       <%= f.input :searchedword, input_html: {value: ""}, label: false %>   
       <%= f.submit "rechercher", class: "btn-primary btn-new" %>
     <% end %>

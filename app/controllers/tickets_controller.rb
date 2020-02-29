@@ -19,6 +19,7 @@ class TicketsController < ApplicationController
     # @consultation = patient.consultations.last
     @ticket.consultation = @patient.consultations.last
     @ticket.asking_user_id = current_user.id
+    sleep(1.minutes)
     @ticket.answer = "Il faut lui donner de l'eau"
     @ticket.save
 
