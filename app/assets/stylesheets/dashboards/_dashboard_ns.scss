@@ -60,10 +60,11 @@ table{
 
 thead{
   > tr{
-    background-color: $italianskyblue;
+    background-color: $mustard;
     > th {
       padding: 8px 0px !important;
       margin: auto 0px;
+      color: $deepkoamaru;
     }
   }
 }
@@ -75,12 +76,13 @@ thead{
 tbody > tr{
   &:hover{
     > td {
-      letter-spacing: 0.05px;
+      // letter-spacing: 0.01px;
+      // font-style: italic;
     }
   }
   > td{
     // padding: 6px 2px 6px 2px !important;
-    padding: 6px 0px !important;
+    padding: 8px 0px !important;
     vertical-align: middle !important;  
   }
 }

@@ -14,8 +14,8 @@
 
 .form-field {
   background: #FFFFFF;
-  border: 1px solid $deepkoamaru;
-  border-radius: 5px;
+  border: 1px solid #CBD0DA !important;
+  border-radius: 3px;
 
   &:focus::placeholder{
     display: none;

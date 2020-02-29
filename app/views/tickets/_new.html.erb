@@ -4,7 +4,7 @@
     <div class="modal-content">
 
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Solliciter un spécialiste</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">Demander l'avis d'un spécialiste</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -12,8 +12,8 @@
 
       <div class="modal-body">
         <%= simple_form_for [@patient, @ticket] do |f| %>
-          <%= f.input :question, label: "Description", input_html: { rows: 10 } %>
-          <%= f.submit "Valider", class: "btn btn-secondary align-self-end" %>
+          <%= f.input :question, label: "Préciser les détails de votre cas", as: :text, input_html: { rows: 4 } %>
+          <%= f.submit "Valider", class: "btn btn-secondary" %>
         <% end %>
       </div>
 

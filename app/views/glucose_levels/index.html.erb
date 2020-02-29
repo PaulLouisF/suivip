@@ -1,20 +1,22 @@
 
-<div class="row d-flex justify-content-center">
-
-  <div class="chart-box">
-    <canvas id="glucoseChart" class="m-4" aria-label="Hello ARIA World" role="img"></canvas>
+<div class="row no-gutters px-0 pt-4">
+  <div class="chart-box col-6 mr-1 ml-n2 px-0">
+    <!-- <h4 class="mt-2 mb-3 ml-2">Evolution de la glycémie</h4> -->
+    <canvas class="pr-1 px-1 my-4" id="glucoseChart"></canvas>
   </div>
 
-  <div class="w-50 h-50">
-    <canvas id="glucosePieChart" class="m-4" aria-label="Hello ARIA World" role="img"></canvas>
+  <div class="chart-box col-6 ml-1 mr-n2 px-0">
+    <!-- <h4 class="mt-2 mb-3 ml-2">Répartition des mesures par tranches</h4> -->
+    <canvas class="pr-1 px-1 my-4" id="glucosePieChart"></canvas>
   </div>
+</div>
 
-
+<div class="bloc-form">
   <div id="essaiT" data-dates_enable="<%= @glycemic_value.to_json %>"></div>
 
-
-  <div class="mt-6">
+  <div class="mt-2">
     <%= render partial: "new", glucose_level: @glucose_level %>
   </div>
-
 </div>
+
+

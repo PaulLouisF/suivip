@@ -19,10 +19,9 @@ class TicketsController < ApplicationController
     # @consultation = patient.consultations.last
     @ticket.consultation = @patient.consultations.last
     @ticket.asking_user_id = current_user.id
-    sleep(1.minutes)
-    @ticket.answer = "Il faut lui donner de l'eau"
     @ticket.save
-
+    @ticket.update(answer: "On peut observer que Aina est tous les matins en hyperglycémie au réveil car la dose d'insuline du soir est insuffisante. 
+      J'augmente la dose du soir de 2 unités (cf. nouvelle ordonnance).\n Aina doit revenir en consultation dans 2 semaines pour refaire un point sur l'adaptation du traitement.")
     redirect_to patient_consultations_path(@patient)
   end
 
