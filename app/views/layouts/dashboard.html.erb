@@ -21,7 +21,11 @@
         <nav class="">
           <div class="tab d-flex flex-column justify-content-center" id="nav-tab">
             <%# <button id="nav-patients" class="nav-btn text-center mt-3">Mes patients</button> %>
-            <%= link_to "Mes patients", mypatients_path, class: "nav-btn text-center" %>
+            <% if (current_page?(mypatients_path) || current_page?(authenticated_root_path)) %>
+              <%= link_to "Mes patients", mypatients_path, class: "nav-btn active text-center" %>
+            <% else %>
+              <%= link_to "Mes patients", mypatients_path, class: "nav-btn text-center" %>
+            <% end %>
 
             <%# <button id="nav-tickets" class="nav-btn text-center">Mes tickets</button> %>
             <%= link_to "Mes tickets", mytickets_path, class: "nav-btn text-center mt-3" %> 

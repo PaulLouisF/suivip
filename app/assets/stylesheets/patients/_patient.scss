@@ -1,6 +1,6 @@
 // *** NAVIGATION IN PATIENT FILE ***
 #arrow-back {
-  font-size: 32px;
+  font-size: 36px;
   color: $deepkoamaru;
   
   &:hover{
@@ -18,8 +18,9 @@
   border-radius: 40px 10px 5px 5px;
   // border: solid 1px $deepkoamaru;
   box-shadow: -5px 10px 10px 10px rgba(0, 0, 0, 0.2);
-  min-height: 90vh;
   width: 85vw;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 #patient-file-header{
@@ -39,9 +40,10 @@ hr{
 }
 
 #patient-tab-content{
-  min-height: 800px;
+  min-height: 700px;
   max-width: 94%;
   overflow: scroll;
-  background-color: #F8F8FF;
-  border: 1px solid #F4F4FC;
+  border-radius: 3px;
+  // box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 15px rgba(104, 131, 246, 0.6);
 }

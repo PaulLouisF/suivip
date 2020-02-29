@@ -43,6 +43,10 @@
   overflow-y: scroll;
 }
 
+// #searchfield{
+//   width: 200% !important;
+// }
+
 // CLICKABLE ROWS
 tr[data-href] {
   cursor: pointer;
@@ -56,9 +60,9 @@ table{
 
 thead{
   > tr{
-    background-color: $queenblue;
+    background-color: $italianskyblue;
     > th {
-      padding: 12px 0px !important;
+      padding: 8px 0px !important;
       margin: auto 0px;
     }
   }
