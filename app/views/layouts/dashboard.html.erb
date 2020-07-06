@@ -15,7 +15,7 @@
     <div class="col-3 d-flex justify-content-center cartouche">
       <div class="d-flex flex-column justify-content-center mt-n5">
         <div class="userinfo text-center py-3">
-          <%= image_tag "ines.jpg", class: "avatar-bordered-dashboard" %>
+          <%= image_tag "pl.jpg", class: "avatar-bordered-dashboard" %>
           <h2 class="mt-2" id="dashboard-username"><%= current_user.first_name %></h2>
         </div>
         <nav class="">
@@ -24,11 +24,11 @@
             <%= link_to "Mes patients", mypatients_path, class: "nav-btn active text-center" %>
 
             <%# <button id="nav-tickets" class="nav-btn text-center">Mes tickets</button> %>
-            <%= link_to "Mes tickets", mytickets_path, class: "nav-btn text-center mt-3" %> 
+            <%= link_to "Mes tickets", mytickets_path, class: "nav-btn text-center mt-3" %>
 
             <%# <button id="nav-medecins" class="nav-btn text-center mt-3">Mes médecins</button> %>
             <%= link_to "Mes médecins", request.original_url, class: "nav-btn text-center mt-3" %>
-            
+
             <%# <button id="nav-infos" class="nav-btn nav-infos text-center mt-3">Mon Compte</button> %>
             <%= link_to "Mon compte", myaccount_path, class: "nav-btn text-center mt-3", id: "nav-infos" %>
           </div>
